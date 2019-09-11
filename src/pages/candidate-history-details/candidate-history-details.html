@@ -1,0 +1,245 @@
+
+<ion-header>
+  <main-header></main-header>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+      <ion-card-header style="font-size: 1.7rem;
+      color: #222;
+      padding: 16px;
+      font-weight: bold;
+      padding-bottom: 0px;">
+        Requirement Details
+      </ion-card-header>
+    
+      <ion-card-content style=" padding: 6px 0px;">
+          <ion-list >
+              <ion-item class="_row">
+                  <ion-label floating>Select Client<span class="astric">*</span> : </ion-label>
+                  <ion-select [(ngModel)]="candidate.clientName" (ionChange)="onSelectChange($event)">
+                     <ion-option value="">Select</ion-option> 
+                    <ion-option value="{{name}}" *ngFor="let name of allNames">{{name}}</ion-option>
+                  </ion-select>
+              </ion-item>
+               
+              
+              <ion-grid *ngFor="let contact of contactdetails,let i=index">
+                  <ion-row>
+                      <ion-col *ngIf="i<1">
+                        <ion-label ><b>Contact Person<span class="astric">*</span></b></ion-label>
+                        <button ion-button color="dark"  (click)="addClientModal(contact)">Add new</button>
+                      </ion-col> 
+                  </ion-row>
+                  <ion-row text-center>   
+                    <ion-checkbox style="margin-left: 10px;margin-top: 5px" ></ion-checkbox>
+                    <ion-col (click)="openClientModal(contact)"><ion-icon name="md-create" ></ion-icon></ion-col>
+                     <ion-col style="margin-right: 60px;">{{contact.contactFullName}}</ion-col>
+                    <ion-col>
+                      <button *ngIf="contact.sendUserEmail == false" ion-button full color='dark'style=" height: 32px;
+                      width: 90px;margin-top: -3px;" (click)="activateData(contact.id)">Activate</button>
+                    </ion-col>       
+                  </ion-row>
+                </ion-grid>
+
+              <ion-item class="_row">
+                <ion-label floating >Priority<span class="astric">*</span> : </ion-label>
+                <ion-select [(ngModel)]="candidate.priority">
+                  <ion-option value="">Select</ion-option>
+                  <ion-option value="High">High</ion-option>
+                  <ion-option value="Medium">Medium</ion-option>
+                  <ion-option value="Low">Low</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="_row">
+              <ion-label floating>Type of Requirement<span class="astric">*</span> : </ion-label>
+              <ion-select [(ngModel)]="candidate.typeOfReq">
+                <ion-option value="">Select</ion-option>
+                  <ion-option value="Contract">Contract</ion-option>
+                  <ion-option value="Contract to Hire">Contract to Hire</ion-option>
+                  <ion-option value="Full Time">Full Time</ion-option>
+              </ion-select>
+          </ion-item>
+          
+          <ion-item  class="_row">
+            <ion-label floating  >Job Title <span class="astric">*</span> : </ion-label>
+            <ion-input type="text"  [(ngModel)]="candidate.jobTitle" ></ion-input>
+            
+          </ion-item>
+          
+              
+             
+            </ion-list>
+      </ion-card-content>
+    
+    </ion-card>
+    <ion-card >
+          <ion-card-header style="font-size: 1.7rem;
+          color: #222;
+          padding: 16px;
+          font-weight: bold;
+          padding-bottom: 0px;">
+            Add Required Skills 
+          </ion-card-header>
+          <ion-card-content style=" padding: 6px 0px;">
+              
+              <ion-list >
+                  <div class="uploadSection">
+                    <div class="inc-dec-btn-txt">
+                        <h1>Technical Screener Types</h1>
+                        <div class="inc-dec-btn">
+                            <button ion-button full color='danger' (click)="addskillValue()">+</button>
+                            <button ion-button full color='dark' (click)="deleteskillValue()" >-</button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="tsDetails"  *ngFor="let skill of skillArray;let i = index;" >
+                      <ion-item class="_row "    >
+                          <ion-label floating>Skill Type : </ion-label>
+                          <ion-select [(ngModel)]="skill.types">
+                                   <ion-option value="primarySkill" >Primary skills</ion-option>
+                                  <ion-option value="secondarySkill" >Secondary Skills</ion-option> 
+                          </ion-select>
+                      </ion-item >
+                      <ion-item  class="_row">
+                          <ion-label floating>Skill Name	 : </ion-label>
+                          <ion-input type="text" [(ngModel)]='skill.skillname'></ion-input>
+                        </ion-item> 
+                           
+                  </div>
+                 
+                  <ion-item  class="_row">
+                    <ion-label floating>Duration<span class="astric">*</span>	 : </ion-label>
+                    <ion-input type="text" [(ngModel)]='candidate.duration'></ion-input>
+                </ion-item>
+                <ion-item  class="_row" >
+                    <ion-label  floating  >Period <span class="astric">*</span> : </ion-label>
+            
+                    <ion-select [(ngModel)]="candidate.durationPeriod" >
+                      <ion-option value="" disabled=true>Select</ion-option>
+                      <ion-option value="Years" >Years</ion-option>
+                      <ion-option value="Months" >Months</ion-option>
+                      <ion-option value="weeks" >Weeks</ion-option>
+                      <ion-option value="Days" >Days</ion-option>
+                    </ion-select>
+                  </ion-item>
+
+  
+                    
+                    <ion-item class="_row">
+                      <ion-label floating>Description<span class="astric">*</span></ion-label>
+                      <ion-input [(ngModel)]="candidate.description" name="description"></ion-input>
+                    </ion-item>
+
+                    <ion-item  class="_row">
+                      <ion-label  floating >Open Requirement <span class="astric">*</span> : </ion-label>
+                      <ion-input type="text"  [(ngModel)]="candidate.openPositions" ></ion-input>
+                    </ion-item> 
+                    <ion-item  class="_row">
+                        <ion-label  floating >Pay Rate <span class="astric">*</span> : </ion-label>
+                        <ion-input type="text"  [(ngModel)]="candidate.payRate" ></ion-input> 
+                    </ion-item> 
+                    <ion-item  class="_row">
+                        <ion-label  floating >Bill Rate  </ion-label>
+                        <ion-input type="text"  [(ngModel)]="candidate.billRate" ></ion-input> 
+                    </ion-item> 
+                    <ion-item  class="_row" >
+                        <ion-label  floating  >Currency <span class="astric">*</span> : </ion-label>               
+                        <ion-select [(ngModel)]="candidate.payRateCurrency" >
+                          <ion-option value="" disabled=true>Select</ion-option>
+                          <ion-option value="Dollar" >Dollar</ion-option>
+                          <ion-option value="INR" >INR</ion-option>
+                        </ion-select>
+                      </ion-item>
+                      <ion-item  class="_row" >
+                          <ion-label  floating  >Period <span class="astric">*</span> : </ion-label>
+                  
+                          <ion-select [(ngModel)]="candidate.payRatePeriod" >
+                            <ion-option value="Period" disabled=true>Period</ion-option>
+                            <ion-option value="Hour" >Per Hour</ion-option>
+                            <ion-option value="Day" >Per Day</ion-option>
+                            <ion-option value="Week" >Per Week</ion-option>
+                            <ion-option value="Month" >Per Month</ion-option>
+                            <ion-option value="Year" >Per Year</ion-option>
+                          </ion-select>
+                        </ion-item>
+                        <ion-item  class="_row">
+                            <ion-label  floating >Start Date  </ion-label>
+                            <ion-input type="text"  [(ngModel)]="candidate.startDate" ></ion-input> 
+                        </ion-item>     
+            
+                
+                    
+                </ion-list>
+          </ion-card-content>
+         
+        </ion-card>
+
+     <ion-card>
+        <ion-card-header style="font-size: 1.7rem;
+        color: #222;
+        padding: 16px;
+        font-weight: bold;
+        padding-bottom: 0px;">
+            Address (Optional)
+        </ion-card-header>
+        <ion-card-content style=" padding: 6px 0px;">
+            <ion-list>
+                <ion-item class="_row">
+                  <ion-label floating >Client Location : </ion-label>
+                  <ion-input type="text"    [(ngModel)]="candidate.altcontact"></ion-input>
+                </ion-item>
+              
+                <ion-item  class="_row">
+                  <ion-label floating >Broadcast Location : </ion-label>
+                  <ion-input type="text" [(ngModel)]="candidate.broadcastLocation"></ion-input>
+                </ion-item>
+
+                <ion-item  class="_row">
+                    <ion-label floating >Address Line 1 : </ion-label>
+                    <ion-input type="text" [(ngModel)]="candidate.clientAddress"></ion-input>
+                  </ion-item>
+                  <ion-item  class="_row">
+                      <ion-label floating>Address Line 2: </ion-label>
+                      <ion-input type="text" [(ngModel)]="candidate.clientAddress2"></ion-input>
+                    </ion-item>
+                  <ion-item  class="_row"> 
+                    <ion-label floating>Zip Code : </ion-label>
+                    <ion-input type="number" [(ngModel)]="candidate.zipCode"></ion-input>
+                  </ion-item>
+
+                  <ion-item  class="_row">
+                      <ion-label floating>City : </ion-label>
+                      <ion-input type="text" [(ngModel)]="candidate.clientCity" ></ion-input>
+                    </ion-item>
+                  
+                    <ion-item  class="_row">
+                      <ion-label floating >State : </ion-label>
+                      <ion-input type="text" [(ngModel)]="candidate.clientState"></ion-input>
+                    </ion-item>
+
+                    <ion-item  class="_row">
+                        <ion-label floating >Country : </ion-label>
+                        <ion-input type="text" [(ngModel)]="candidate.clientCountry"></ion-input>
+                    </ion-item>
+
+                    <ion-item class="_row">
+                        <ion-label floating>Description</ion-label>
+                        <ion-input [(ngModel)]="area_desc" name="candidate.description"></ion-input>
+                      </ion-item>
+  
+              </ion-list>
+        </ion-card-content>
+      
+      </ion-card>
+     
+     
+     
+</ion-content>
+
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='goBack()'>Cancel</button>
+  <button ion-button full color='dark' (click)="updateCandidate()">Submit</button>
+</ion-footer>
+ 

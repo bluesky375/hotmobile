@@ -1,0 +1,26 @@
+<!-- Generated template for the ClientPopoverComponent component -->
+<ion-list  >
+  
+  
+  <button ion-item (click)="deleteCandidate()" >
+      Delete
+   </button>
+   <button ion-item (click)="historyCandidate()"  >
+    History
+  </button>
+  <button  ion-item (click)="downloadResume()"  >
+    Download Resume
+   </button>
+   <button  ion-item (click)="blacklistClient()" *ngIf="isBlackListed=='No'" >
+    Blacklist Candidate
+   </button>
+   <button ion-item (click)="removeBlacklist()" *ngIf="isBlackListed=='Yes'">
+    Remove Blacklist
+ </button>
+  
+   
+  
+</ion-list>
+<!-- <ion-list>
+
+</ion-list> -->

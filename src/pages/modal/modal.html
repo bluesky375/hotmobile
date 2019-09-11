@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+      <div class="header">
+        <div class="left"></div>
+        <div class="center">
+          <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+        </div>
+        <div class="rigth">
+          <ion-icon ios="ios-close" md="md-close" (click)="closeModal()"></ion-icon>
+        </div>
+      </div>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+      
+     
+     <div class="modal_body" >
+        <div class="form-container">
+          <div class="scroll-content">
+            <div class="heading">
+              <h1>Filter</h1>
+            </div>
+            <ion-item>
+              
+                <ion-searchbar placeholder="Search by username"
+                  [(ngModel)]="userdetail.username">
+                </ion-searchbar>  
+            </ion-item>
+            <ion-item>
+              
+                <ion-searchbar placeholder="Search by email"
+                  [(ngModel)]="userdetail.email">
+                </ion-searchbar>  
+            </ion-item>
+            
+            <ion-item style="padding-left: 23px; padding-right: 18px; margin-top: 22px;height:2px" >
+                <ion-label >Search by status : </ion-label>
+                  <ion-select [(ngModel)]="userdetail.status"  >
+                    <ion-option value="">Select</ion-option>
+                    <ion-option value="Active"  >Active</ion-option>
+                    <ion-option value="Inactive" >Inactive</ion-option>
+                  </ion-select>
+            </ion-item>
+            <ion-item style="padding-left: 23px; padding-right: 18px; margin-top: 22px;height:2px" >
+                <ion-label >Search by status : </ion-label>
+                  <ion-select [(ngModel)]="userdetail.ratings"  >
+                    <ion-option value="">Select</ion-option>
+                    <ion-option value="Novice"  >Novice</ion-option>
+                    <ion-option value="Average" >Average</ion-option>
+                    <ion-option value="Good" >Good</ion-option>
+                    <ion-option value="Expert" >Expert</ion-option>
+                    <ion-option value="Guru">Guru</ion-option>
+                    <ion-option value="NA">Not Available</ion-option>
+                  </ion-select>
+            </ion-item>  
+         
+         
+          </div>
+        </div>
+      </div>
+      
+  </ion-content>
+  <ion-footer class="commonFooter">
+    <button ion-button full color='danger' (click)='resetData()'>Cancel</button>
+    <button ion-button full color='dark' (click)="searchData()">Submit</button>
+  </ion-footer>
+  

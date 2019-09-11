@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <div class="header">
+      <div class="left"></div>
+      <div class="center">
+        <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+      </div>
+      <div class="rigth">
+        <ion-icon ios="ios-close" md="md-close" (click)="goBack()"></ion-icon>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    
+   
+   <div class="modal_body" >
+      <div class="form-container">
+        <div class="scroll-content">
+          <div class="heading">
+            <h1 >User Details: </h1>
+          </div>
+         
+          <ion-item class="_row">
+            <ion-label class="labelBorder" floating>Job Title <span class="astric">*</span> :</ion-label>
+            <ion-input class="fieldBorder" type="text" [(ngModel)]="userDetails.firstName"></ion-input>
+          </ion-item>
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >Last Name <span class="astric">*</span> : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.lastName" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >User Name <span class="astric">*</span> : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.userName" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >Email Id <span class="astric">*</span> : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.emailId" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label  class="labelBorder" floating >Contact number <span class="astric">*</span> : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.contactNumber" ></ion-input>
+            </ion-item>
+            
+            <!-- <ion-item  class="_row">
+                <ion-label  floating >Note <span class="astric">*</span> : </ion-label>
+                <ion-textarea type="text"  [(ngModel)]="userDetails.note" ></ion-textarea>
+            </ion-item>  -->
+            
+       
+        
+          <div class="heading"style="margin-top:30px">
+            <h1 >Address (Optional): </h1>
+          </div>
+          <ion-item  class="_row">
+            <ion-label class="labelBorder" floating >Alternate Contact  : </ion-label>
+            <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.alternateContact" ></ion-input>
+         </ion-item>
+          <ion-item  class="_row">
+              <ion-label class="labelBorder" floating >Address Line 1  : </ion-label>
+              <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.addressOne" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >Address Line 2  : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.addressTwo" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >Zip Code : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.zipCode" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label  class="labelBorder" floating >City  : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.city" ></ion-input>
+            </ion-item> 
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >State  : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.state" ></ion-input>
+            </ion-item>
+            <ion-item  class="_row">
+                <ion-label class="labelBorder" floating >Country  : </ion-label>
+                <ion-input class="fieldBorder" type="text"  [(ngModel)]="userDetails.country" ></ion-input>
+            </ion-item>
+           
+        </div>
+      </div>
+    </div>
+    
+</ion-content>
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='goBack()'>Close</button>
+  
+</ion-footer>

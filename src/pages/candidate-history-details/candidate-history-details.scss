@@ -1,0 +1,51 @@
+page-candidate-history-details {
+    ion-card{
+       
+        ion-card-content{
+           
+            ion-list{
+                ._row{
+                    ._text{
+                        color:black;
+                        font-size:17px;
+                        margin-left: 2px
+                    }
+                    
+                }
+                .inc-dec-btn-txt{
+                    display: flex;
+                    h1{
+                        flex: 3;
+                        margin-top: 10px;
+                        font-size:17px;
+                        margin-left: 14px;
+                    }
+                    .inc-dec-btn{
+                        display: flex;
+                        flex: 1;
+                        text-align: right;
+                        font-size:17px;
+                        button{
+                            width:60px;
+                        }
+                    }
+                }
+
+                .tsDetails{
+                    border: solid 1px #000;
+                    padding: 10px;
+                    margin:5px;
+                    padding-left: 0px;
+                }
+               
+               
+            }
+        }
+    }
+}
+
+.label-md[stacked], .label-md[floating] {
+    color: black;
+    font-size: 20px;
+}
+

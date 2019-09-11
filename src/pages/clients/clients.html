@@ -1,0 +1,66 @@
+
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+        <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+          <h1>Client Management</h1>
+          <button ion-button color="dark" outline (click)="createClients()">Create Client</button>
+  </div>
+
+  <ion-row center >
+     
+      <ion-col>
+         <ion-searchbar
+         [(ngModel)]="myInput">
+       </ion-searchbar>
+     </ion-col> 
+     
+     
+   </ion-row> 
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>       
+
+      <div class="body" *ngFor="let Client of Clientslist| search : myInput,let i= index"  >
+       
+            <div class="body-left col">
+                
+                <button ion-item (click)="gotoEditClient(Client)">
+                    <h1 ><span style="color:red">{{i+1}}.</span>  {{Client.clientName | uppercase }}</h1>
+                  <div  >
+                      <div class="inner-body" >
+                          <label class="inner-left"><b>Engagement Model</b> :  <span >{{Client.engagementModel}}</span></label> 
+                      </div>
+                      <div class="inner-body " >
+                          <label class="inner-left"><b>City</b> :  <span >{{Client.city}}</span></label> 
+                      </div>
+                      <div class="inner-body" >
+                          <label class="inner-left"><b>Contact</b> :  <span >{{Client.contactNumber}}</span></label> 
+                      </div>
+                  </div >
+                     
+                   <div *ngIf="Client.isBlackListed=='Yes'">
+                      <span style="color:red;font-size: 16px;">This Client is BlackListed </span> <ion-icon name="help-circle"></ion-icon>
+                   </div> 
+                   
+                </button>   
+            
+           
+      </div>
+      
+      <div class="body-right col">   
+          <button ion-item (click)="presentPopover($event,Client)" >  
+                  <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+          </button>  
+      </div>
+       
+         
+      </div>          
+        
+</ion-list>
+  <!-- <ion-fab class="fab-btn" title="Filter" >
+      <button ion-fab (click)="openModal(user)"> <ion-icon name="ios-funnel"></ion-icon></button>
+    </ion-fab>  -->
+</ion-content>

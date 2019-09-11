@@ -1,0 +1,9 @@
+{
+  "name": "hotAdmin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+  
+  
+}

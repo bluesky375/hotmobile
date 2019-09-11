@@ -1,0 +1,75 @@
+<!--
+  Generated template for the QuestionResponsePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+        <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+        <h1>Interview Questions</h1>
+     </div>   
+  </ion-header>
+
+
+<ion-content padding >
+    <ion-card *ngFor="let question of total_question" >
+       
+      <ion-card-content  class="card-panel2"   >
+            
+        <div class="container"  >
+            <div class = "row" >
+                <div class = "col"  (click)="openModal(question)"><b>{{question.questionName}}: </b>
+                </div>           
+             </div>
+             <div class = "row">
+                <div class = "col" style="padding:10px" >
+                    <span class="value"  >
+                    <ion-icon name="checkmark-circle" class="status_icon" *ngIf="question.status == 'Screened'" color="secondary" ></ion-icon >
+                      <ion-icon name="close-circle"  class="status_icon" *ngIf="question.status != 'Screened'" color="danger" ></ion-icon >{{question.status}} </span> 
+                </div>
+                <div class = "col" style="padding:10px" >
+                    <span class="value"  ><ion-icon name="videocam" class="type_icon"></ion-icon>{{question.type}} </span> 
+                </div>
+                <div class = "col" style="padding:9px">
+                    <span class="value" *ngIf="question.score >= '0' && question.score <= '20' "><ion-icon name="information-circle" class="info-icon"  ></ion-icon>
+                      Novice
+                    </span> 
+                    <span class="value" *ngIf="question.score >= '21' && question.score <= '40' "><ion-icon name="information-circle" class="info-icon" ></ion-icon>
+                      Average
+                   </span> 
+                  <span class="value" *ngIf="question.score >= '41' && question.score <= '60' " ><ion-icon name="information-circle" class="info-icon"></ion-icon>
+                       Good
+                  </span> 
+                  <span class="value" *ngIf="question.score >= '61' && question.score <= '80' "><ion-icon name="information-circle" class="info-icon" ></ion-icon>
+                      Expert
+                  </span> 
+                  <span class="value" *ngIf="question.score >= '81' && question.score <= '100' "><ion-icon name="information-circle" class="info-icon" ></ion-icon>
+                      Guru
+                  </span> 
+                </div>     
+                    
+                       
+             </div>
+          </div>
+        
+        </ion-card-content> 
+      </ion-card>
+      
+      <div  *ngIf="detail1.length == '0' && interview_details == undefined">
+          <h2>No Questions to display  </h2>
+      </div> 
+       
+     <div *ngIf="(message == 'File Not found')">
+          <h3>Candidate has not given interview</h3>
+                   <h3>OR</h3>  
+              
+           <h3> Video syncing is in progress.</h3>
+      </div> 
+       <video *ngIf="videoLink != null || videoLink != undefined" style="width: 100%" oncontextmenu="return false;" controlsList="nodownload"  controls="true">
+        <source src="{{videoLink+'.mp4'}}" type="video/mp4" />
+       
+       </video>
+            
+</ion-content>

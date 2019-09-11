@@ -1,0 +1,13 @@
+<!-- Generated template for the SubvendorPopoverComponent component -->
+<ion-list  >
+    
+    <button ion-item (click)="deleteVendors()">
+      Delete
+    </button>
+    <button ion-item (click)="blacklist()" *ngIf="isBlackListed=='No'">
+        Blacklist
+     </button>
+     <button ion-item (click)="removeBlacklist()" *ngIf="isBlackListed=='Yes'">
+      Remove Blacklist
+   </button>
+  </ion-list>

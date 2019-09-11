@@ -1,0 +1,41 @@
+<ion-list  >
+  
+  <button ion-item (click)="editCandidate()">
+    Details/Edit
+  </button>
+  <button ion-item (click)="responseCandidate()" *ngIf="status!=='Email Sent'  && candidateEnableDisable ==true" >
+      Candidate Response
+   </button>
+   <button ion-item (click)="candidateFeedback()"  *ngIf="(submissionType == 'Skype' || submissionType == 'Zoom') && status != 'Answered'">
+      Candidate Feedback Form
+   </button>
+   <button ion-item (click)="candidateHistory()" >
+      History
+   </button>
+   <button ion-item (click)="candidateRemove()" >
+      Remove
+   </button>
+   <button ion-item (click)="disableCandidate()" *ngIf="candidateEnableDisable == true && submitToClient!=='Yes' " >
+     Disable
+   </button>
+   <button ion-item (click)="disableCandidate()" *ngIf="candidateEnableDisable == false && submitToClient!=='Yes' " >
+    Enable
+  </button>
+   <button ion-item (click)="downloadResume()"  >
+      Download Resume
+   </button>
+   <button ion-item (click)="addNotes()" >
+     Add Notes
+   </button>
+
+   <button  ion-item (click)="regenerateLink()"  *ngIf="linkCount<3 && candidateEnableDisable == true && submitToClient =='No' && submissionType !=='Prospect'">
+     Regenerate link:{{linkCount}}
+   </button>
+   <button ion-item (click)="reactivateLink()" *ngIf="status=='In Progress'  && candidateEnableDisable == true">
+     Reactivate link
+   </button>
+   <button ion-item (click)="blacklistedCandidate()" *ngIf="isBlackListed=='No'"  >
+     Blacklisted Candidate
+   </button>
+  
+</ion-list>

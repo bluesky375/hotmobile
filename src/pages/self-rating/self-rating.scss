@@ -1,0 +1,48 @@
+page-self-rating {
+    ion-header{
+        .addBtn{
+           display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+               // flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+            }
+            h1{
+                font-size: 18px;
+                font-weight: bold;
+               // flex: 8;
+                margin: 10px;
+            }
+           .btn2{
+               // flex: 3;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #343434;
+            }
+        }
+    }
+    
+    ion-card{
+        b{
+            font-size: 17px;
+            padding-right: 20px;
+        }
+        span{
+            padding-top: 2px;
+            font-size: 16px;
+        }
+        progress-bar .progress-inner {
+            min-width: 15%;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 0px;
+           // border-radius: 20px;
+            background-color: #272a28;
+            height: 20px;
+        }  
+    }
+}

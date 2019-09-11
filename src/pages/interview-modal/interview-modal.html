@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <div class="header">
+      <div class="left"></div>
+      <div class="center">
+        <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+      </div>
+      <div class="rigth">
+        <ion-icon ios="ios-close" md="md-close" (click)="closeModal()"></ion-icon>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+        <div class="modal_body" >
+            <h2>{{interview_details.active}}. <b>{{interview_details.questionName}}</b></h2> 
+          <ion-list>
+              <!-- <ion-list-header>
+               Answer
+              </ion-list-header> -->
+              <h4 >Answer</h4>
+                <div class="row" style="height:150px" *ngIf="interview_details.candidateResponse" >
+                  <div class="col" >                      
+                     <span>{{interview_details.candidateResponse}}</span>
+                  </div>
+                 
+                </div>
+                <div class="row" style="height:150px" *ngIf="!interview_details.candidateResponse" >
+                    <video   style="width:100%" controlslist="nodownload" controls="true" oncontextmenu="return false;" 
+                    src="{{interview_details.videoLink}}{{interview_details.fileName}}.mp4">
+                    </video>
+                  </div>
+                
+              <div style="font-size: 17px;
+              font-weight: bold;">
+                  <ion-label *ngIf="interview_details.score >= '0' && interview_details.score <= '20' " class="_red">Novice </ion-label>
+                  <ion-label *ngIf="interview_details.score >= '21' && interview_details.score <= '40' " class="_blue">Average</ion-label>
+                  <ion-label *ngIf="interview_details.score >= '41' && interview_details.score <= '60' " class="_blue">Good</ion-label>
+                  <ion-label *ngIf="interview_details.score >= '61' && interview_details.score <= '80' " class="_green">Expert</ion-label>
+                  <ion-label *ngIf="interview_details.score >= '81' && interview_details.score <= '100' " class="_green">Guru</ion-label>
+                  <ion-label style="text-align:center">{{interview_details.score}}</ion-label>
+                  <ion-range  style="height: 8px;text-align: center;"color="dark" [(ngModel)]="interview_details.score">
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                  </ion-range>
+              </div>
+              
+              <h4 >Comments</h4>
+              <div class="row">
+                <div class="col">
+                    
+                    <ion-textarea type="text"></ion-textarea>              
+                </div>
+              </div>
+               <!-- <div  >
+                 <div class="col">
+                    <button ion-button color="dark">Prev</button>
+                    <button ion-button color="dark">Next</button>
+                 </div>
+               </div> -->
+               <h4 >Preferred Answer:</h4>
+                <div class="row">
+                  <div class="col">                      
+                     <span>{{interview_details.answer}}</span>
+                  </div>
+                </div>
+               <div>
+
+               </div>
+             
+              
+          </ion-list>
+             
+          </div>     
+</ion-content>
+<ion-footer class="commonFooter">
+  <!-- <button ion-button full color='danger' (click)='cancelData()'>No</button> -->
+  <button ion-button full color='dark' (click)="updateResult()">Yes</button>
+</ion-footer>

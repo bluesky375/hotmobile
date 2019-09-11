@@ -1,0 +1,137 @@
+page-add-resource {
+    ion-header{
+        .addBtn{
+            display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+                flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+            }
+            h1{
+                font-size: 18px;
+                font-weight: bold;
+                flex: 10;
+                margin: 10px;
+            }
+           .btn2{
+                flex: 3;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #343434;
+            }
+        }
+    }
+    
+      .dash_body{
+        text-align: center;
+        //margin-top: 3px;
+        .card-container{
+          display: flex;
+          
+         
+          .left{
+            margin-right: 5px !important;
+            margin-bottom: 5px !important;
+            margin-top: 5px !important;
+          }
+          .right{
+            margin-top: auto !important;
+            margin-left: 5px !important;
+            margin-bottom: 5px !important;
+            margin-top: 5px !important;
+          }
+        .card-body{
+            height: 175px;
+          .body-top{
+            display: flex;
+            margin-top: -20px;
+           .image2{
+            border-radius: 50%;
+            width:110px;
+            height:110px;
+            
+            border: solid 1px #03A9F4;
+            padding: 2px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 10px;
+           }
+           ._blue{
+               color: #03A9F4 !important;
+           }
+            ion-icon{
+              font-size: 45px;
+              flex: 1;
+              margin-top: 20px;
+              zoom:2.0;
+              font-weight: bold;
+            }
+          }
+          .body-bottom{
+            ._black{
+                color:black !important;
+            }
+            span{
+              font-size: 14px;
+            }
+            h1{
+              margin: 0px;
+              padding: 0px;
+              font-size: 15px;
+              font-weight: bold;
+              flex: 2;
+              margin-top: 5px;
+            }
+           .btn{
+            background: #03A9F4;
+            color: #fff;
+            border-radius: 25px;
+            width: 80%;
+            margin-left: 0px;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 1px;
+            height: 20px;
+            margin-top: 10px;
+           }
+         
+          }
+          
+          .delete{
+            color:#e32626;
+            font-size: 20px;padding: 10px;
+            float:right;
+            
+          }
+         }
+        } 
+        .container3{
+          width: 50%;
+          float: left;
+          margin-right: -12px;
+          margin-left: 4px; 
+          overflow:hidden !important;
+          text-overflow: ellipsis;
+          .image3{
+            border-radius: 50%;
+              width:110px;
+              height:110px;
+              
+              border: solid 1px #03A9F4;
+              padding: 2px;
+              margin-left: auto;
+              margin-right: auto;
+              display: block;
+              margin-top: 10px;
+          }
+        }
+       
+
+        }
+
+}

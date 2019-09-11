@@ -1,0 +1,42 @@
+<ion-header>
+  <main-header></main-header>
+ 
+      <div class="addBtn"> 
+          <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+          <h1>Role Management</h1>
+          <button ion-button color="dark" outline (click)="gotoState()">Create Role</button>
+       </div>
+      <ion-row center >
+        
+          <ion-col>
+            <ion-searchbar
+            [(ngModel)]="myInput">
+          </ion-searchbar>
+        </ion-col> 
+        
+            
+      </ion-row>  
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <div class="brow" *ngFor="let role of roles | search : myInput">
+        <div class="bleft">
+            <button ion-item  (click)="gotoEditRole(role)" >
+                {{ role.groupName }}
+              </button>  
+        </div>
+        <div class="bright">
+            <!-- <ion-icon name="ios-trash" style="color: #e13838; margin-top: 14px;" (click)="deleteRole(role.id)"> 
+               
+            </ion-icon> -->
+            <button class="delete-button" ion-button small round clear icon-only color="danger" (click)="deleteRole(role.id)">
+                <ion-icon name="ios-trash-outline"></ion-icon>
+              </button>
+         
+        </div>
+    </div>
+    </ion-list>
+
+</ion-content>

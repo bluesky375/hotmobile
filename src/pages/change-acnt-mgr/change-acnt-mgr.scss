@@ -1,0 +1,65 @@
+page-change-acnt-mgr {
+   
+        ion-header{
+            .addBtn{
+                display: flex;
+                //background-color: #4893ffa8;
+                background-color: #eee;
+                color: #0c0909;
+                padding: 5px;
+                h1{
+                    font-size: 18px;
+                    font-weight: bold;
+                    flex: 2;
+                    margin: 10px;
+                }
+                button{
+                    flex: 1;
+                    float: right;
+                    color: #fff;
+                    border-color:#fff;
+                    background-color: #343434;
+                    
+                }
+            }
+        }
+        
+        ion-content{
+            
+            ion-list{
+                    .card-body{
+                        border-bottom: 1px solid #dedede;
+                        display: flex;
+                       .left{
+                           flex:1;
+                           .image{
+                               border-radius: 50%;
+                               height: 100px;
+                               width:100px;
+                               border: solid 1px #03A9F4;
+                               padding: 2px;
+                           }
+                       }
+                       .right{
+                        margin-top: 13px;
+                        flex:2;
+                        button{
+                            height: 30px;
+                            width:200px;
+                            border-radius:20px;
+                            font-size: 16px;
+                            margin-bottom:10px
+                        }
+                        span{
+                            margin-left: 45px;
+                        }
+                       }
+                    }
+    
+            }
+    
+          
+        }
+    
+    
+}

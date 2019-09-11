@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <div class="header">
+      <div class="left"></div>
+      <div class="center">
+        <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+
+        
+      </div>
+      <div class="rigth">
+        <ion-icon ios="ios-close" md="md-close" (click)="closeModal()"></ion-icon>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    
+   
+   <div class="modal_body" >
+      <div class="form-container">
+        <div class="scroll-content">
+          <div class="heading">
+            <h1 >Screener Name: {{userDetails.firstName}}  </h1>
+          </div>
+          <hr>
+          <div class="row">
+            <img *ngIf="userDetails.imageUrl != null"   src="{{userDetails.imageUrl}}">
+            <img *ngIf="userDetails.imageUrl == null" src="https://qa.hookedontalent.com/hotlabs/assets/images/user.png">
+
+            
+          </div>
+         <div class="row">
+           <div class="col">
+              <h3 >{{userDetails.firstName}}   {{userDetails.lastName}}</h3>
+           </div>
+         </div>
+          <div class="row">
+            <ion-icon name="mail"> <span style="font-size: 18px;font-weight: 600">  {{userDetails.emailId}}</span></ion-icon>
+          </div>
+          <div class="row">
+            <ion-icon name="call"> <span style="font-size: 18px;font-weight: 600">  {{userDetails.contactNumber}}</span></ion-icon>
+          </div>
+          <div class="row">
+            <ion-icon name="logo-usd"> <span style="font-size: 18px;font-weight: 600">  {{userDetails.expectedPayRange}}</span></ion-icon>
+          </div>
+          <div class="row">
+            <ion-icon name="pin"> <span style="font-size: 18px;font-weight: 600">  {{userDetails.city}}</span></ion-icon>
+          </div>
+          <div class="row">
+            <div class="col" (click)="showVideo()">
+                <ion-icon name="videocam"> <span style="font-size: 18px">Video</span></ion-icon>
+            </div>
+            <div class="col" (click)="showSkill()">
+                <ion-icon name="menu"> <span style="font-size: 18px">Skills</span></ion-icon>
+            </div>
+            <div class="col" (click)="showHistory()">
+                <ion-icon name="person"> <span style="font-size: 18px">Past History</span></ion-icon>
+            </div>
+          </div>
+        <div>
+
+        </div>
+          <hr>
+          <div class="row" *ngIf="showVideoDiv">
+              <video width="100%" *ngIf="userDetails.userVideoLink != null" height="240" controls src="{{userDetails.userVideoLink}}.mp4">
+                
+              </video>
+              <h2 *ngIf="userDetails.userVideoLink == null">Video is not Available</h2>
+          </div>
+          <div class="row" *ngIf="showSkillDiv">
+              
+              <ion-card *ngFor ="let user of technicalScreenerDetailsDSkillsSet">
+                  <ion-card-content>      
+                        <div class="container">
+                            
+                            <div class="row">
+                                <div class="col">
+                                  <b>Type</b> : <span>{{user.skillType}}</span>
+                                </div>
+                                <div class="col">
+                                    <b>Skill</b> : <span>{{user.skills}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                  <b>Experience</b> : <span>{{user.years}}years {{user.months}} months</span>
+                                </div>
+                               
+                            </div>
+                        </div>
+                  </ion-card-content>
+              </ion-card>
+          </div>
+          <div class="row" *ngIf="showHistoryDiv">
+              <h4>Work in progress</h4>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+    
+</ion-content>
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='cancelData()'>Close</button>
+  
+</ion-footer>

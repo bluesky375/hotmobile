@@ -1,0 +1,125 @@
+<!--
+  Generated template for the CandidateResponsePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+  <ion-header>
+    <main-header></main-header>
+    <div class="addBtn">
+      <button ion-button class="btn1" outline (click)="goBack()">
+        <ion-icon name="undo"></ion-icon>
+      </button>
+      <h1>Candidate Response</h1>
+    </div>   
+    
+  </ion-header>
+
+
+  <ion-content> 
+    <ion-card>
+      <ion-card-content style=" padding: 6px 0px;">
+          <ion-list>
+                <ion-item class="_row">
+                    <ion-label floating>Select Round : </ion-label>
+                    <ion-select   (ngModelChange)="onSelectChange($event)">
+                        <ion-option [value]="i.roundNo" *ngFor="let i of positionCandidates; let idx = index" selected="{{(idx==0).toString()}}">Round{{i.roundNo}}-{{i.submissionType}}</ion-option>
+                    </ion-select>
+                  </ion-item>         
+              </ion-list>
+      </ion-card-content>
+    </ion-card> 
+
+    <ion-card>       
+        <ion-card-content class="card-body" >
+             
+          <div class="body-bottom" style="display: flex;">
+            <div style="flex: 2;">
+                <img src="assets/imgs/user.png" class="image" />
+            </div>
+            
+            <div style="flex: 8;margin-left: 10px;">
+              <div class="_name">
+                      {{firstName}} {{lastName}}
+              </div>
+              <div class="_subName">
+                <div>Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{finalVerdict}}</div>
+                <div>Screener : </div>
+              </div> 
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+   
+      <ion-card class="cardBg">
+        <ion-card-content class="cardBody" (click)="gotoQuestionResponse()">
+          <h2 style="flex: 6;">Screening Response</h2> 
+          <div style="flex: 1;"><ion-icon style="font-size: 23px;font-weight: bold;" name="log-in"></ion-icon></div>
+          
+        </ion-card-content>
+      </ion-card>    
+   
+      <ion-card class="cardBg">
+        <ion-card-content class="cardBody" (click)="gotoCanditateDetails()">
+            <h2 style="flex: 6;">Candidate Details</h2>   
+            <div style="flex: 1;"><ion-icon style="font-size: 23px;font-weight: bold;" name="log-in"></ion-icon></div>         
+        </ion-card-content>
+      </ion-card>
+   
+  
+      <!-- <ion-card class="cardBg">
+        <ion-card-content class="cardBody" (click)="gotoRatings()">
+            <h2 style="flex: 6;">Self Ratings</h2>      
+            <div style="flex: 1;"><ion-icon style="font-size: 23px;font-weight: bold;" name="log-in"></ion-icon></div>     
+        </ion-card-content>
+      </ion-card> -->
+    
+   
+      <!-- <ion-card class="cardBg">
+        <ion-card-content class="cardBody" (click)="gotoQuestions()">
+            <h2 style="flex: 6;">General Questions</h2>    
+            <div style="flex: 1;"><ion-icon style="font-size: 23px;font-weight: bold;" name="log-in"></ion-icon></div>       
+        </ion-card-content>
+      </ion-card> -->
+
+    
+      <ion-card>
+        <ion-card-content style=" padding: 6px 0px;">
+            <ion-list>
+            <ion-item class="_row">
+                <ion-label floating class="labelBorder">Write a Feedback <span class="astric">*</span>
+                </ion-label>
+                <ion-textarea style="margin-bottom: 10px;" class="fieldBorder" type="text" [(ngModel)]="comment"></ion-textarea>
+              </ion-item>
+              <ion-item class="_row">
+                  <ion-label floating>Result</ion-label>
+                  <ion-select class="fieldBorder" [(ngModel)]="finalVerdictChange">
+                      <ion-option value="" disabled>Select</ion-option>
+                      <ion-option value="Approve">Approve</ion-option>
+                      <ion-option value="Hold">Hold</ion-option>
+                      <ion-option value="Rejected">Rejected</ion-option>
+                  </ion-select>
+                </ion-item>         
+            </ion-list>
+
+          <ion-card-header style="padding-bottom: 0;" class="headerClass">Candidate Notes</ion-card-header>
+          <ion-list style="border: 1px solid #9a9a9a; margin: 10px; margin-left: 15px;">
+            <ion-scroll class="candNotes" style="width:100%; height:300px" scrollY="true">
+              <ion-item style="" class="_row" *ngFor="let note of notes"> 
+                <div style="font-size: 15px;" *ngIf="note.notes">
+                    <span>{{note.notes}} {{note.status}}</span>                    
+                    <br> <b style="text-transform: capitalize;">{{note.userName}} </b> <span> [{{note.userRole}}]</span>
+                    <br> <span style="font-size: 12px; font-family: monospace;">{{note.updated_DATE | date:'medium'}}</span>
+                    <hr>
+                </div>                
+              </ion-item>
+            </ion-scroll>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    
+  </ion-content>
+  <!-- <ion-footer class="commonFooter">
+    <button ion-button full color='danger' (click)='goBack()'>Cancel</button>
+    <button ion-button full color='dark' (click)="submit()">Submit</button>
+  </ion-footer> -->

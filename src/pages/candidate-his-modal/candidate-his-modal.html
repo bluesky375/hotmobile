@@ -1,0 +1,48 @@
+
+
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+      <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+          <h1>Candidate Past History</h1>
+          
+  </div>
+
+</ion-header>
+<ion-content padding>
+  <ion-list>       
+
+      <div class="body" *ngFor="let details of result;let i= index"  >
+       
+            <div class="body-left col">
+                
+                <button ion-item (click)="gotoEditdetails(details)">
+                    <h1 style="text-overflow:ellipsis"><span style="color:red;">{{details.positionId}}.</span>  {{details.clientName | uppercase }}</h1>
+                  <div  >
+                      <div class="inner-body" >
+                          <label class="inner-left"><b>Requirement</b> :  <span >{{details.positionName}}</span></label> 
+                      </div>
+                      
+                      <div class="inner-body" >
+                          <label class="inner-left"><b>Status</b> :  <span >{{details.status}}</span></label> 
+                      </div>
+    
+                  </div >
+                     
+                   <div *ngIf="details.isBlackListed=='Yes'">
+                      <span style="color:red;font-size: 16px;">This details is BlackListed </span> <ion-icon name="help-circle"></ion-icon>
+                   </div> 
+                   
+                </button>   
+            
+           
+      </div>
+      
+      
+       
+         
+      </div>          
+        
+</ion-list>
+  
+</ion-content>

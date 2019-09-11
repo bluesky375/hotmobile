@@ -1,0 +1,56 @@
+
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+        <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+        <h1>Select General Questions</h1>
+           
+    </div>
+  
+    <ion-row center >
+       
+        <ion-col>
+           <ion-searchbar
+           [(ngModel)]="myInput">
+         </ion-searchbar>
+       </ion-col> 
+       
+       
+     </ion-row> 
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list>       
+        
+        <ion-card *ngFor ="let details of general| search : myInput,let i=index">
+            <ion-card-content>  
+                <div radio-group [(ngModel)]="id">
+                    <ion-checkbox id="{{id}}" (click)="radioClicked(details)" ></ion-checkbox>
+                 </div>      
+                  <div class="container">
+                      <div class = "row"  >
+                          <div class = "col" ><b>{{i + 1}}. {{details.questionName}} </b><br>
+   
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                            <b>Type</b> : <span>{{details.type}}</span>
+                          </div>
+                          <div class="col">
+                              <b>Author</b> : <span>{{details.createdUserName}}</span>
+                          </div>
+                      </div>
+                    
+                  </div>
+            </ion-card-content>
+        </ion-card>
+     
+  </ion-list>
+   
+  </ion-content>
+  <ion-footer class="commonFooter">
+        
+        <button ion-button full color='dark' (click)="addRequirement()" [disabled]="buttonDisabled">Add To Requirement</button>
+    </ion-footer>

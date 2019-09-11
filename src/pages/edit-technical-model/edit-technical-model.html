@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <div class="header">
+      <div class="left"></div>
+      <div class="center">
+        <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+      </div>
+      <div class="rigth">
+        <ion-icon ios="ios-close" md="md-close" (click)="closeModal()"></ion-icon>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    
+   
+   <div class="modal_body" >
+      <div class="form-container">
+        <div class="scroll-content">
+          <div class="heading">
+            <h1 >User Details: </h1>
+          </div>
+           <ion-item class="_row">
+                    <ion-label floating>Question Type<span class="astric">*</span> : </ion-label>
+                    <ion-select [(ngModel)]="details.type"  (ionChange)="onSelectChange($event)" >
+                       <ion-option value="" disabled="true">Select</ion-option> 
+                       <ion-option value="Objective" >Objective</ion-option> 
+                       <ion-option value="Subjective" >Subjective</ion-option>
+                       <ion-option value="Video" >Video</ion-option>  
+                    </ion-select>
+                </ion-item>
+                
+                <ion-item class="_row">
+                    <ion-label floating>Select Domain<span class="astric">*</span> : </ion-label>
+                    <ion-select  [(ngModel)]="details.domain" >
+                       <ion-option value="" disabled=true >Select</ion-option> 
+                      <ion-option value="{{name}}" *ngFor="let name of domains">{{name}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            
+          
+                <ion-item class="_row">
+                  <ion-label floating >Select Level : </ion-label>
+                  <ion-select [(ngModel)]="details.level">
+                    <ion-option value="" disabled=true>Select</ion-option>
+                    <ion-option value="Easy">Easy</ion-option>
+                    <ion-option value="Medium">Medium</ion-option>
+                    <ion-option value="Hard">Hard</ion-option>
+                  </ion-select>
+              </ion-item>
+              <ion-item  class="_row">
+                  <ion-label floating  >Question <span class="astric">*</span> : </ion-label>
+                  <ion-textarea type="text"  [(ngModel)]="details.questionName" ></ion-textarea>     
+              </ion-item>
+              <div *ngIf="selectedType == 'Objective'">
+                <ion-item  class="_row">
+                    <ion-label floating  >Option 1 <span class="astric">*</span> : </ion-label>
+                    <ion-input type="text"  [(ngModel)]="details.option1" (blur)="onBlurMethod()"></ion-input>      
+                </ion-item>
+                
+                <ion-item  class="_row">
+                    <ion-label floating  >Option 2 <span class="astric">*</span> : </ion-label>
+                    <ion-input type="text"  [(ngModel)]="details.option2" (blur)="onBlurMethod()"></ion-input> 
+                </ion-item>
+                <ion-item  class="_row">
+                    <ion-label floating  >Option 3  : </ion-label>
+                    <ion-input type="text"  [(ngModel)]="details.option3" (blur)="onBlurMethod()" ></ion-input> 
+                </ion-item>
+                <ion-item  class="_row">
+                    <ion-label floating  >Option 4 : </ion-label>
+                    <ion-input type="text"  [(ngModel)]="details.option4" (blur)="onBlurMethod()" ></ion-input> 
+                </ion-item>  
+                <ion-item  class="_row">
+                    <ion-label floating  >Option 5  : </ion-label>
+                    <ion-input type="text"  [(ngModel)]="details.option5" (blur)="onBlurMethod()" ></ion-input> 
+                </ion-item>
+                <ion-item  class="_row">
+                    <ion-label floating  >Option 6  : </ion-label>
+                    <ion-input type="text"  [(ngModel)]="details.option6" (blur)="onBlurMethod()" ></ion-input> 
+                </ion-item> 
+                <ion-item class="_row">
+                  <ion-label floating>Preferred Answer<span class="astric">*</span> : </ion-label>
+                  <ion-select [(ngModel)]="details.answer" >
+                      <ion-option value="" disabled="true">Select</ion-option> 
+                      <ion-option *ngFor="let ans of myModel" >{{ans}}</ion-option>
+                    
+                  </ion-select>
+                </ion-item>
+            </div>
+            <ion-item  class="_row" *ngIf="selectedType != 'Objective'" >
+              <ion-label floating  >Preferred Answer <span class="astric">*</span> : </ion-label>
+              <ion-textarea type="text"  [(ngModel)]="details.answer" ></ion-textarea> 
+            </ion-item> 
+        </div>
+      </div>
+    </div>
+    
+</ion-content>
+<ion-footer class="commonFooter">
+    <button ion-button full color='danger' (click)='goBack()'>Cancel</button>
+    <button ion-button full color='dark' (click)='updateClient()'>Submit</button>
+</ion-footer>

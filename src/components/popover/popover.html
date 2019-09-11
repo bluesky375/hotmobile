@@ -1,0 +1,23 @@
+<!-- Generated template for the PopoverComponent component -->
+<ion-list>
+     <button ion-item (click)="gotoPage('SETTINGS')">
+       <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+       Settings
+     </button>
+     <button ion-item (click)="gotoPage('PROFILE')">
+       <ion-icon ios="ios-person" md="md-person"></ion-icon>
+       Profile
+     </button>
+     <button ion-item (click)="gotoPage('VIDEOS')">
+       <ion-icon ios="ios-videocam" md="md-videocam"></ion-icon>
+       Videos
+     </button>
+     <button ion-item (click)="gotoPage('CHANGE PASSWORD')">
+       <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+       Change Password
+     </button>
+     <button ion-item (click)="logout()">
+       <ion-icon ios="ios-power" md="md-power"></ion-icon>
+       Logout
+     </button>
+   </ion-list>

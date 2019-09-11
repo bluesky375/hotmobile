@@ -1,0 +1,167 @@
+<!--
+  Generated template for the EditdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <main-header></main-header>
+</ion-header>
+
+
+<ion-content>
+      <ion-card>
+          <ion-card-header>
+            Enter SubVendor Details
+          </ion-card-header>
+        
+          <ion-card-content>
+              <ion-list >
+                 
+                   
+                  <ion-item  class="_row" >
+                    <ion-label floating class="inputlist">SubVendor Name<span class="astric">*</span> : </ion-label>
+                    <ion-input type="text" [(ngModel)]="clientDetails.subVendorName" ></ion-input>
+                  </ion-item> 
+  
+                  <ion-item  class="_row">
+                    <ion-label floating class="inputlist">Status<span class="astric">*</span> : </ion-label>
+                    <ion-select [(ngModel)]="clientDetails.status"  >
+                      <ion-option value="" disabled="true">Select</ion-option>
+                      <ion-option value="active" >Active</ion-option>
+                      <ion-option value="draft"  >Draft</ion-option>
+                      <ion-option value="prospect"  >Prospect</ion-option>
+                      <ion-option value="billing"  >Billing</ion-option>
+                      <ion-option value="inactive" >InActive</ion-option>
+                      <ion-option value="dnw"  >Do Not Work/Black Listed Company</ion-option>
+
+                    </ion-select>
+                    </ion-item>
+                  
+                   
+  
+                    <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Division<span class="astric">*</span> : </ion-label>
+                        <ion-select [(ngModel)]="clientDetails.division"  >
+                          <ion-option value="" disabled="true">Select</ion-option>
+                          <ion-option value="usa" >USA</ion-option>
+                          <ion-option value="india"  >India</ion-option>
+              
+                        </ion-select>>
+                      </ion-item>
+                    
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">EIN/Federal ID<span class="astric">*</span> : </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.federalId" ></ion-input>
+                      </ion-item>
+  
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Contact number: </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.contactNumber" ></ion-input>
+                      </ion-item>
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Fax Number: </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.faxNumber" ></ion-input>
+                      </ion-item>
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Note: </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.notes" ></ion-input>
+                      </ion-item>
+                      
+                </ion-list>
+          </ion-card-content>
+        
+        </ion-card>
+         <ion-card>
+          <ion-card-header>
+            Address (Optional)
+          </ion-card-header>
+            <ion-card-content>
+                <ion-list>
+                    <ion-item class="_row">
+                      <ion-label floating class="inputlist">Address Line 1: </ion-label>
+                      <ion-input type="text" [(ngModel)]="clientDetails.addressOne"></ion-input>
+                    </ion-item>
+                  
+                    <ion-item  class="_row">
+                      <ion-label floating class="inputlist">Address Line 2 : </ion-label>
+                      <ion-input type="text" [(ngModel)]="clientDetails.addressTwo"></ion-input>
+                    </ion-item>
+    
+                   
+                    
+                      <ion-item  class="_row"> 
+                        <ion-label floating class="inputlist">Zip Code : </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.zipCode"></ion-input>
+                      </ion-item>
+
+                      <ion-item  class="_row"> 
+                        <ion-label floating class="inputlist">City : </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.city"></ion-input>
+                      </ion-item>
+
+                      <ion-item  class="_row"> 
+                        <ion-label floating class="inputlist">State : </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.state"></ion-input>
+                      </ion-item>
+                      
+                      <ion-item  class="_row"> 
+                        <ion-label floating class="inputlist">Country : </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.country"></ion-input>
+                      </ion-item>
+
+                      <ion-item  class="_row"> 
+                        <ion-label floating class="inputlist">Website <span class="astric">*</span>  : </ion-label>
+                        <ion-input type="text" [(ngModel)]="clientDetails.websiteUrl"></ion-input>
+                      </ion-item>
+                      
+                       
+                          
+                  </ion-list>
+            </ion-card-content>
+          
+          </ion-card> 
+  
+          <ion-card *ngFor="let vendor of clientContactList;let i= index">
+            <ion-card-header >
+              Contact Details {{i+1}}
+            </ion-card-header>
+              <ion-card-content>
+                  <ion-list>
+                      <ion-item class="_row">
+                        <ion-label floating class="inputlist">First Name<span class="astric">*</span>: </ion-label>
+                        <ion-input type="text" [(ngModel)]="vendor.firstName"></ion-input>
+                      </ion-item>
+                    
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Last Name<span class="astric">*</span> : </ion-label>
+                        <ion-input type="text" [(ngModel)]="vendor.lastName"></ion-input>
+                      </ion-item>
+      
+                     
+                      
+                        <ion-item  class="_row"> 
+                          <ion-label floating class="inputlist">Email Id <span class="astric">*</span> : </ion-label>
+                          <ion-input type="text" [(ngModel)]="vendor.emailId"></ion-input>
+                        </ion-item>
+  
+                        <ion-item  class="_row"> 
+                          <ion-label floating class="inputlist">Contact number<span class="astric">*</span>  : </ion-label>
+                          <ion-input type="text" [(ngModel)]="vendor.contactNumber"></ion-input>
+                        </ion-item>
+  
+                        <ion-item  class="_row"> 
+                          <ion-label floating class="inputlist">Alternate Contact : </ion-label>
+                          <ion-input type="text" [(ngModel)]="vendor.alternateContact"></ion-input>
+                        </ion-item>
+                        
+                       
+                    </ion-list>
+              </ion-card-content>
+            
+            </ion-card> 
+  </ion-content>
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='goBack()'>Cancel</button>
+  <button ion-button full color='dark' (click)='updateSubvendor()'>Submit</button>
+</ion-footer>

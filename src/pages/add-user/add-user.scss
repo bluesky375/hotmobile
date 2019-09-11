@@ -1,0 +1,88 @@
+page-add-user {
+    ion-content{
+        ion-card{
+            ion-card-header{
+                color: #000;
+                font-weight: bold;
+                //font-size: 20px;
+                margin-left: 13px;
+               
+            }
+            ion-card-content{
+                ion-list{
+                    
+                    ._row{
+                        
+                        .item-inner{
+                            border-bottom: solid 1px #ccc !important;
+                        }
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+                        ion-label{
+                            //color: #000 !important;
+                            font-size: 17px;
+                        }
+                        ion-input{
+                            color: #000;
+                            font-size: 17px;
+                        }
+                    }
+                    .list-md .item-input:last-child{
+                        border-bottom: none;
+                    }
+                    .uploadSection2{
+                        margin-top: 10px !important;
+                        padding-bottom: 0px !important;
+                    }
+                    .uploadSection{
+                        padding: 10px;
+                        h1{
+                            margin: 0px;
+                            font-size: 17px;
+                        }
+                        button{
+                            margin-top: 5px;
+                            text-transform: capitalize;
+                        }
+                        .inc-dec-btn-txt{
+                            display: flex;
+                            h1{
+                                flex: 3;
+                                margin-top: 10px;
+                            }
+                            .inc-dec-btn{
+                                display: flex;
+                                flex: 1;
+                                text-align: right;
+                                button{
+                                    width:60px;
+                                }
+                            }
+                        }
+                    }
+                   
+                   
+                    .tsDetails{
+                        border: solid 1px #000;
+                        padding: 20px;
+                        margin:5px;
+                    }
+                    .tesBottom{
+                        display: flex;
+                        border-bottom: none !important;
+                        .left{
+                            flex:1;
+                            border: solid 1px #ccc;
+                            margin: 5px;
+                        }
+                        .right{
+                            flex:1;
+                            border: solid 1px #ccc;
+                            margin: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

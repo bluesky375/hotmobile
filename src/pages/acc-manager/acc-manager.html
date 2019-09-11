@@ -1,0 +1,126 @@
+
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+            <h1>Select Account Manager from the list</h1>
+          
+    </div>
+    <ion-row center >
+         
+      <ion-col>
+         <ion-searchbar
+         [(ngModel)]="myInput">
+       </ion-searchbar>
+     </ion-col> 
+    
+   </ion-row>
+   <ion-card>
+     <ion-card-content style="padding: 6px 0px;">
+        <ion-row style="margin-top: -16px;
+        padding-top: 4px;height: 68px;">
+            <ion-col >
+                <ion-item class="_row">
+                    <ion-label floating>Select resource from the list: </ion-label>
+                    <ion-select  [(ngModel)]="selectDomain" (ngModelChange)="onSelectRole($event)">
+                        <ion-option value="1" [selected]="true">All</ion-option>
+                        <ion-option [value]="i.groupName" *ngFor="let i of roles_details; let idx = index" >{{i.groupName}}</ion-option>
+                    </ion-select>
+                  </ion-item>         
+              </ion-col>
+         </ion-row>
+     </ion-card-content>
+   </ion-card>  
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    
+    <ion-list>
+            
+  <div *ngIf="filterRole == null || filterRole == undefined">
+      <div class="body" *ngFor="let acc of allUser_details  | search : myInput"  >
+              
+          <ion-card >
+            <ion-card-content>
+                <div class="card-body" >
+                    <div class="left" *ngIf="acc.imageUrl == null || acc.imageUrl == undefined">
+                      <img  (click)="editUser(acc.id)" src="assets/imgs/user.png"  class="image"/>
+                    </div>
+                    <div class="left" *ngIf="acc.imageUrl != null || acc.imageUrl != undefined">
+                      <img (click)="editUser(acc.id)" src="{{acc.imageUrl}}"  class="image"/>
+                    </div>
+                    <div class="right">
+                      <button (click)="editUser(acc.id)"> {{ acc.firstName }} {{acc.lastName}}</button>
+                      <span>{{acc.role}}</span>
+                    </div>
+                    <ion-list radio-group [(ngModel)]="id">
+                      <ion-radio [value]="acc.id" (click)="radioClicked(acc.id)"></ion-radio>
+                    </ion-list>   
+                </div>
+                
+              </ion-card-content>
+              
+        </ion-card>
+        
+      </div>      
+  </div>
+  
+  <div *ngIf="filterRole != null || filterRole != undefined">
+      <div class="body" *ngFor="let acc of tempArray2  | search : myInput"  >
+              
+          <ion-card >
+            <ion-card-content>
+                <div class="card-body" >
+                    <div class="left" *ngIf="acc.imageUrl == null || acc.imageUrl == undefined">
+                      <img  (click)="editUser(acc.id)" src="assets/imgs/user.png"  class="image"/>
+                    </div>
+                    <div class="left" *ngIf="acc.imageUrl != null || acc.imageUrl != undefined">
+                      <img (click)="editUser(acc.id)" src="{{acc.imageUrl}}"  class="image"/>
+                    </div>
+                    <div class="right">
+                      <button (click)="editUser(acc.id)"> {{ acc.firstName }} {{acc.lastName}}</button>
+                      <span>{{acc.role}}</span>
+                    </div>
+                    <ion-list radio-group [(ngModel)]="id">
+                      <ion-radio [value]="acc.id" (click)="radioClicked(acc.id)"></ion-radio>
+                    </ion-list>   
+                </div>
+                
+              </ion-card-content>
+              
+        </ion-card>
+        
+      </div>      
+  </div>          
+  
+  
+    </ion-list>
+  </ion-content>
+  <ion-footer style="margin-bottom: 10px"> 
+      <ion-card>
+          <ion-card-content style="padding: 6px 0px;">
+           
+                <ion-row style="margin-bottom: 11px;
+                margin-top: -23px;
+                padding-top: 2px;
+                padding-bottom: 5px;">
+                    <ion-col >
+                        <ion-item class="_row">
+                            <ion-label floating>Add as Role<span class="astric">*</span>: </ion-label>
+                            <ion-select  [(ngModel)]="selectRole" (ngModelChange)="onSelectChange($event)">
+                                <ion-option value="" [selected]="true">Select</ion-option>
+                                <ion-option [value]="i.groupName" *ngFor="let i of roles_details; let idx = index" >{{i.groupName}}</ion-option>
+                            </ion-select>
+                          </ion-item>         
+                      </ion-col>
+                 </ion-row>
+            
+          </ion-card-content>
+        </ion-card>  
+  </ion-footer>
+  
+  <ion-footer class="commonFooter" >
+    <button ion-button full color='danger' (click)='goBack()'>Back</button>
+    <button ion-button full color='dark' (click)="submitData()">Submit</button>
+  </ion-footer>

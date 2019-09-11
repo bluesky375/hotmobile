@@ -1,0 +1,68 @@
+<!--
+  Generated template for the GeneralQuestionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+    <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button> 
+    <h1>All Technical Screeners</h1>
+    <button ion-button color="dark" outline (click)="createScreener()">Create New</button>
+</div>
+<ion-row center >
+       
+  <ion-col>
+     <ion-searchbar
+     [(ngModel)]="myInput">
+   </ion-searchbar>
+ </ion-col> 
+ 
+ 
+</ion-row> 
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-card *ngFor ="let user of userSet| search : myInput;let i=index">
+        <ion-card-content>      
+              <div class="container">
+                  <div class = "row"  >
+                      <div class = "col" >
+                        <b>. {{user.firstName}} {{user.lastName}}</b><br>
+                      </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <video   *ngIf="user.userVideoLink != null" style="text-align: center;margin-top: 0px;z-index: 1;max-width: 100%;max-height: 100%;"  >
+                     <source src="{{user.userVideoLink}}.mp4">
+                      </video>
+                      <!-- <img *ngIf="user.imageUrl != null" src="{{user.imageUrl}}"> -->
+                       <img *ngIf="user.userVideoLink == null" src="https://qa.hookedontalent.com/hotlabs/assets/images/Vposter.jpg"> 
+                    </div>
+                  </div>
+                   <div class="row">
+                      <div class="col" *ngIf="user.avgTime != null">
+                        <b>Response Time</b> : <span>{{user.avgTime}}</span>
+                      </div>
+                      <div class="col" *ngIf="user.avgTime == null">
+                        <b>Response Time</b> : <span>NA</span>
+                      </div>
+                    
+                  </div> 
+                  <div class="row">
+                    <div class="col" >
+                        <button ion-item (click)="viewDetails(user.id)" style="float:right">
+                            <ion-icon ios="menu" md="md-menu" class="popbtn"></ion-icon> Details
+                         </button>  
+                     </div>
+                  </div>
+              </div>
+        </ion-card-content>
+    </ion-card>
+   
+</ion-content>
+

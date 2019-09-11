@@ -1,0 +1,61 @@
+
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+          <h1>Select Account Manager from the list</h1>
+        
+  </div>
+  <ion-row center >
+       
+    <ion-col>
+       <ion-searchbar
+       [(ngModel)]="myInput">
+     </ion-searchbar>
+   </ion-col> 
+   
+   
+ </ion-row>  
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-list>
+          
+
+           <div class="body"  >
+            
+              <ion-card  *ngFor="let mgr of accMgr  | search : myInput;let i= index"  >
+                <ion-card-content>
+                    <div class="card-body" >
+                        <div class="left" *ngIf="mgr.imageUrl == null || mgr.imageUrl == undefined">
+                          <img  src="assets/imgs/user.png"  class="image"/>
+                        </div>
+                        <div class="left" *ngIf="mgr.imageUrl != null || mgr.imageUrl != undefined">
+                          <img  src="{{mgr.imageUrl}}"  class="image"/>
+                        </div>
+                        <div class="right">
+                          <button (click)="editUser(mgr.id)"> {{ mgr.firstName }} {{mgr.lastName}}</button>
+                          <span>Account Manager</span>
+                        </div>
+                          <ion-list radio-group [(ngModel)]="id" >  
+                            <ion-radio [value]="mgr.id"  (click)="radioClicked(mgr.id)"></ion-radio>
+                          </ion-list>
+                      
+          
+                    </div>
+                    
+                  </ion-card-content>
+                  
+            </ion-card>
+            
+          </div>            
+          
+
+
+  </ion-list>
+</ion-content>
+<ion-footer class="commonFooter"  >
+  <button ion-button full color='danger' (click)='goBack()'>Back</button>
+  <button ion-button full color='dark' (click)="submitData()">Submit</button>
+</ion-footer>

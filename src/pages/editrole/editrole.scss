@@ -1,0 +1,42 @@
+page-editrole {
+    
+    .addBtn{
+        display: flex;
+        background-color: #4893ffa8;
+        color: #fff;
+        padding: 5px;
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            flex: 2;
+            margin: 10px;
+            margin-left: 10px;
+        }    
+    }
+
+body{
+    position: absolute;
+}
+ion-card{
+    ion-card-header{
+        padding: 8px
+    }
+}
+ion-row{
+    .title{
+        font-size: 20px;
+        margin-left: 8px;
+    }
+}
+.mandatory{
+    color: red
+}
+.submitBTN{
+    background: black
+}
+ion-item{
+    ion-checkbox{
+        font-size:17px;
+    }
+}
+}

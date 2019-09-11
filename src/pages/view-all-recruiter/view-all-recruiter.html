@@ -1,0 +1,59 @@
+<!--
+  Generated template for the GeneralQuestionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+      <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button> 
+      <h1>View All Recruiter - Analytics</h1>
+     
+  </div>
+ 
+  </ion-header>
+  
+  
+  <ion-content>
+    <ion-card>
+        <ion-card-content  class="card-panel2" >
+            
+          <ion-card *ngFor="let rec of newtrackRecr ; let i=index">
+            <div class="container" >
+            <div class="row-table"  >
+                <div class = "col"> 
+                  <span class="panel-heading"  > {{rec.fname}}</span></div>
+            </div>
+            <div class = "row" >
+                <div class = "col" ><b>Submission </b>
+                  <span class="value" >
+                    {{rec.candidates}}
+                  </span>
+                </div>
+                <div class = "col"  ><b>Approved </b>
+                  <span class="value"  >
+                      {{rec.approved}}
+                  </span >    
+                </div>                    
+             </div>
+             <div class = "row"  >
+                <div class = "col"  ><b>Avg Cand Resp Time</b>
+                 <span  >
+                   {{rec.avgTime}}
+                 </span>
+                </div>
+                <div class = "col" ><b>Last Active </b>
+                  <span>
+                    {{rec.lastActive | date:'medium'}}
+                  </span>   
+                </div>   
+             </div>
+            </div>
+          </ion-card>
+        </ion-card-content>
+    </ion-card>
+     
+  
+  </ion-content>
+  

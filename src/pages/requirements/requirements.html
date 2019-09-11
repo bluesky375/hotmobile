@@ -1,0 +1,69 @@
+<!--
+  Generated template for the RequirementsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+            <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+            <h1>Requirements</h1>
+            <button ion-button color="primary" outline (click)="createRequirement()">+</button>
+    </div>
+
+    <ion-row center >
+       
+        <ion-col>
+           <ion-searchbar
+           [(ngModel)]="myInput">
+         </ion-searchbar>
+       </ion-col> 
+       
+       
+     </ion-row> 
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>       
+ 
+        <div class="body" *ngFor="let client of requirements | search : myInput"  >
+         
+              <div class="body-left col">
+                  
+                  <button ion-item (click)="candidateView(client)">
+                      <h1 ><span class=""></span>[{{ client.positionId }}] &nbsp;  {{client.jobTitle | uppercase }}</h1>
+                        
+                      <div class="inner-body" >
+                          <label class="inner-left">Client :  <span >{{client.clientName}}</span></label> 
+                      </div>
+                      <div class="inner-body " >
+                          <label class="inner-left" style="width:250px;">Skills :  <span style="text-overflow:ellipsis ;text-align-last: auto" >{{client.primarySkill}}</span></label> 
+                      </div>
+                      <div class="inner-body" >
+                          <label class="inner-left">Status :  <span >{{client.lastMileStone}}</span></label> 
+                      </div>
+                      <div class="inner-body" >
+                            <label class="inner-left">Created Date :  <span >{{client.created_DATE | date :'medium'}}</span></label> 
+                        </div>
+                  </button>   
+              
+             
+            </div>
+        
+        
+        <div class="actionMenu">   
+            <button ion-item (click)="presentPopover($event,client)" >  
+                    <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+            </button>  
+        </div>
+         
+           
+        </div>          
+          
+</ion-list>
+    <!-- <ion-fab class="fab-btn" title="Filter" >
+        <button ion-fab (click)="openModal(user)"> <ion-icon name="ios-funnel"></ion-icon></button>
+      </ion-fab>  -->
+</ion-content>

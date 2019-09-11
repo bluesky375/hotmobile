@@ -1,0 +1,68 @@
+page-view-all-recruiter {
+    ion-header{
+        .addBtn{
+            display: flex;
+            //background-color: #4893ffa8;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+                background: #bdbdbd;
+                 color: black;
+                 flex: 1
+            }
+            h1{
+                font-size: 18px;
+                font-weight: bold;
+                flex: 8;
+                margin: 10px;
+            }
+            // button{
+            //     flex: 2;
+            //     float: right;
+            //     color: #fff;
+            //     border-color:#fff;
+            //     background-color: #343434;
+                
+            // }
+        }
+    }
+    ion-card{
+        .card-panel2{
+            padding: 0px 0px;
+           // height: 856px;
+           
+           }
+        .row-table{
+            background-color: #20a2c7;
+            .col{
+              padding: 11px;
+              text-align: left;
+              .panel-heading{
+                color: white;
+                font-weight: bold;
+                font-size: 17px;
+                
+              }
+            }
+            
+          }
+          .row{
+            //padding: 7px;
+            border: 1px solid #dedede;
+            .col{
+              text-align: center;
+              b{
+                display: block;
+                //color: blue;
+                font-size: 15px;
+              }
+              .value{
+               color:#1fa6d0;
+               // display:block;
+                text-align: center;
+              }
+            }
+          }
+    }
+}

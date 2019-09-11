@@ -1,0 +1,20 @@
+<!-- Generated template for the SideMenuComponent component -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>HOT Menus</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ <ion-content style="margin-top: 56px;">
+   <ion-list >
+     <ion-item (click)="gotoState('DASHBOARD')" [ngClass]="{'active':activeTab=='DASHBOARD'}"><ion-icon ios="ios-settings" md="md-settings"></ion-icon>  Dashboard</ion-item>
+     <ion-item (click)="gotoState('USERS')" [ngClass]="{'active':activeTab=='USERS'}"><ion-icon ios="ios-person" md="md-person"></ion-icon>  Users</ion-item>
+     <ion-item (click)="gotoState('ROLES')" [ngClass]="{'active':activeTab=='ROLES'}"><ion-icon ios="ios-person" md="md-person"></ion-icon>  Roles</ion-item>
+     <ion-item (click)="gotoState('CLIENTS')" [ngClass]="{'active':activeTab=='CLIENTS'}"><ion-icon ios="ios-person" md="md-person"></ion-icon>  Clients</ion-item>
+     <ion-item (click)="gotoState('SUBVENDORS')" [ngClass]="{'active':activeTab=='SUBVENDORS'}"><ion-icon ios="ios-person" md="md-person"></ion-icon>  Subvendors</ion-item>
+     <ion-item (click)="gotoState('REQUIREMENTS')" [ngClass]="{'active':activeTab=='REQUIREMENTS'}"><ion-icon ios="ios-document" md="md-document"></ion-icon>  Requirements</ion-item>
+     <ion-item (click)="gotoState('CANDIDATES')" [ngClass]="{'active':activeTab=='CANDIDATES'}"><ion-icon ios="ios-person" md="md-person"></ion-icon>  Candidates</ion-item>
+     <ion-item (click)="gotoState('SCREENERS')" [ngClass]="{'active':activeTab=='SCREENERS'}"><ion-icon ios="ios-person" md="md-person"></ion-icon>  Screeners</ion-item>
+     <ion-item (click)="gotoState('QUESTIONS')" [ngClass]="{'active':activeTab=='QUESTIONS'}"><ion-icon ios="ios-help" md="md-help"></ion-icon>  Questions</ion-item>
+     <ion-item (click)="gotoState('ACCOUNTS')" [ngClass]="{'active':activeTab=='ACCOUNTS'}"><ion-icon ios="ios-key" md="md-key"></ion-icon>  Accounts</ion-item>
+   </ion-list>
+ </ion-content>

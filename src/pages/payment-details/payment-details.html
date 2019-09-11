@@ -1,0 +1,69 @@
+
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+         <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+          <h1>Payment details: {{jobTitle}}</h1>
+          <!-- <button ion-button color="dark" outline (click)="createdetailss()">Create details</button> -->
+  </div>
+
+  <ion-row center >
+     
+      <ion-col>
+         <ion-searchbar
+         [(ngModel)]="myInput">
+       </ion-searchbar>
+     </ion-col> 
+     
+     
+   </ion-row> 
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>       
+
+      <div class="body" *ngFor="let details of accountDetails| search : myInput,let i= index"  >
+       
+            <div class="body-left col">
+                
+                <button ion-item >
+                  
+                  <div  >
+                      <div class="inner-body" >
+                          <label class="inner-left"><b>Candidate Name</b> :  <span >{{details.firstName}}</span></label> 
+                      </div>
+                      <div class="inner-body " >
+                          <label class="inner-left"><b>Candidate Status</b> :  <span >{{details.finalVerdict}}</span></label> 
+                      </div>
+                      <div class="inner-body" >
+                          <label class="inner-left"><b>Payment Status</b> :  <span >{{details.paymentStatus}}</span><span *ngIf="details.paymentStatus == 'Rejected'">  
+                           <a href="" (click)="showPopup(details)"><ion-icon  name="help-circle"></ion-icon></a> <br>
+                            {{details.updated_Payment_Date |date:'medium'}}
+                          </span></label> 
+                      </div>
+                  </div >
+                     
+                   <!-- <div *ngIf="details.isBlackListed=='Yes'">
+                      <span style="color:red;font-size: 16px;">This details is BlackListed </span> <ion-icon name="help-circle"></ion-icon>
+                   </div>  -->
+                   
+                </button>   
+            
+           
+      </div>
+      
+      <div class="body-right col" *ngIf="details.paymentStatus != 'Rejected'">   
+          <button ion-item (click)="gotoEditdetails(details)" >  
+                  <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+          </button>  
+      </div>
+       
+         
+      </div>          
+        
+</ion-list>
+  <!-- <ion-fab class="fab-btn" title="Filter" >
+      <button ion-fab (click)="openModal(user)"> <ion-icon name="ios-funnel"></ion-icon></button>
+    </ion-fab>  -->
+</ion-content>

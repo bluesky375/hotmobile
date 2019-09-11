@@ -1,0 +1,80 @@
+<!--
+  Generated template for the GeneralQuestionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- req questions -->
+<ion-header>
+        <main-header></main-header>
+        <div class="addBtn"> 
+              <button ion-button  class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+              <button ion-button  class="btn2" outline >General</button>
+              <button ion-button  class="btn3" outline (click)="gotoTechnicals()">Technical</button>
+        </div>
+        <ion-row center style="float: right;" >
+            <ion-col>
+                <button ion-button  class="btn4" *ngIf="currentReqActions.actions.includes('approvetechquestions')" (click)="approveQuestion()" >Approve Question</button>
+                <button ion-button  class="btn4" *ngIf="currentReqActions.actions.includes('approvetechquestions')" (click)="rejectQuestion()">Reject Question</button>  
+           </ion-col> 
+         </ion-row>
+         <div class="row" style="float: right;"  >
+            <button ion-button *ngIf="currentReqActions.actions.includes('addgeneralquestions') ||currentReqActions.actions.includes('resubmitquestion') " class="btn4"  (click)="addQuestionDb()" >+ db</button>
+            <button ion-button *ngIf="currentReqActions.actions.includes('addgeneralquestions') ||currentReqActions.actions.includes('resubmitquestion') " class="btn4"  (click)="createNew()">Create New</button>
+            <button ion-button *ngIf="currentReqActions.actions.includes('submittechquestions')"  class="btn4"  (click)="submitQuestions()">Submit</button>
+            
+        </div>
+    </ion-header>
+    
+    
+    <ion-content padding>
+    
+            <div >
+                     
+                     <div class="row" *ngIf="generals == '' || generals == 'undefined'">
+                         <div class="col">
+                                 <h1>No records found</h1>
+                         </div>
+                         
+                     </div>
+                 </div>
+    
+            <ion-list>       
+     
+                    <div class="body" *ngFor="let question of generals;let i=index">
+                     
+                          <div class="">
+                              
+                              <button ion-item>
+                                  <h3 style="font-weight: 500"><span class="">[{{i + 1}}]</span> &nbsp;  {{question.questionName}}</h3>
+                                    
+                                  <div class="inner-body" >
+                                      <label class="inner-left">Type :  <span >{{question.type}}</span></label> 
+                                  </div>
+                                  
+                                  <div class="inner-body" >
+                                      <label class="inner-left">Author :  <span >{{question.createdUserName}}</span></label> 
+                                  </div>
+                                  
+                              </button>   
+                          
+                         
+                    </div> 
+                    
+                    
+                    <!-- <div class="actionMenu">   
+                        <button ion-item (click)="presentPopover($event,client)" >  
+                                <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+                        </button>  
+                    </div> -->
+                     
+                       
+                    </div>          
+                      
+            </ion-list>
+    
+        
+           
+    </ion-content>
+    
+    

@@ -1,0 +1,85 @@
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"  *ngIf="currentReqActions.actions.includes('addcandidates')"> 
+       <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+       <h1>Candidates</h1>        
+        <button ion-button color="dark" class="btn2" outline (click)="AddCandidateDb()">+ Db</button>
+        <button ion-button color="dark" class="btn2" outline (click)="gotoAddCandidate()">+ New</button>
+  </div>
+   <div class="addBtn" *ngIf="!currentReqActions.actions.includes('addcandidates')"> 
+    <button ion-button color="grey"  style="background: #bdbdbd;color: black;" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+  </div> 
+  
+  <ion-row center >
+     
+      <ion-col >
+         <ion-searchbar
+         [(ngModel)]="myInput">
+       </ion-searchbar>
+     </ion-col> 
+     
+     
+   </ion-row> 
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-list>
+          
+
+          <div class="body"  *ngFor="let candidate of candidates| search : myInput;let i= index" >
+             
+              <div class="body-left col">
+                  
+                <div ion-item >
+                    <h1 ><span class=""></span>[{{ i + 1 }}] &nbsp;  {{candidate.firstName }} {{candidate.lastName}}</h1>
+                      
+                    <div class="inner-body" >
+                        <label class="inner-left">Added By :  <span >{{candidate.addedBy}}</span></label> 
+                    </div>
+                    <div class="inner-body" >
+                        <label class="inner-left">Status :  <span >{{candidate.reasonStatus}}</span></label> 
+                    </div>
+                    <div class="inner-body" >
+                          <label class="inner-left">Email id :  <span >{{candidate.emailId}}</span></label> 
+                      </div>
+                  </div>   
+            
+           
+            </div>
+            
+              <div class="actionMenu">   
+                  <button ion-item (click)="presentPopover($event,candidate)" >  
+                          <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+                  </button>  
+              </div>
+            
+          </div>
+         
+         
+          <div class="row" *ngIf="(currentReqActions.actions.includes('addcandidates')) && (candidates.length == 0) "> 
+            <div class="col">
+              <div style="text-align: center; margin-top:100px;">
+                  <!-- <h3>No Candidates are added to this requirement</h3> -->
+                  <h3>Please add candidates</h3>
+              </div>  
+            </div>
+          </div>
+         
+          <div class="row" *ngIf="!currentReqActions.actions.includes('addcandidates')"> 
+            <div class="col">
+              <div style="text-align: center; margin-top:100px;">
+                  <h3>Cannot add candidates Question's not approved by Account Managert</h3>
+                 
+              </div>
+                
+            </div>
+             
+          </div>
+      
+            
+  </ion-list>
+  
+    
+</ion-content>

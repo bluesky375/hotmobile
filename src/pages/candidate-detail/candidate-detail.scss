@@ -1,0 +1,39 @@
+page-candidate-detail {
+    ion-header{
+        .addBtn{
+           display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+               // flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+            }
+            h1{
+                font-size: 18px;
+                font-weight: bold;
+               // flex: 8;
+                margin: 10px;
+            }
+           .btn2{
+               // flex: 3;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #343434;
+            }
+        }
+    }
+    ion-content{
+        .card-panel2{
+            .container{
+                .row{
+                 font-size: 17px;
+                 text-align: left;
+                 border: 1px solid beige;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,212 @@
+<!--
+  Generated template for the CandidateResponsePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+      <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+      <h1>Screener Feedback(Interview Type : {{submissionType}}) </h1>
+   </div>   
+</ion-header>
+
+
+<ion-content >
+     <div class="card-container2"    style="border-radius: 0px">
+      <h2>Interview Information </h2>
+      <hr>
+      <ion-card class="card-panel2">
+        <ion-card-content class="slide-body3"  > 
+          <h3>Info</h3>
+            <h5><b>Requirement Name  : </b>  {{topic}}</h5>
+            <h5><b>Start Time   : </b> {{ start_time | date:'medium'}} IST</h5>
+            <h5><b>Join Url       : </b>  {{start_url}}</h5>
+            
+        </ion-card-content>
+        </ion-card>
+      <h2>Candidate Details  </h2>
+      <hr>
+      <ion-card class="card-panel2">
+        <ion-card-content class="slide-body3"  > 
+          <h3>Personal Info            </h3>
+            <h5><b>Name   : </b>  {{firstName}} {{lastName}}</h5>
+            <h5><b>Email  : </b> {{emailId}}</h5>
+            <h5><b>Contact : </b>  {{cellPhoneNumber}}</h5>
+            <h5><b>Location : </b>  {{currentLocation}}</h5>
+            <h5  ><b>Skills(Primary)  : </b><span *ngIf="skillType == 'PrimarySkill'">{{skills}}</span>  </h5>
+            <h5><b >Skills(Secondary) : </b><span  *ngIf="skillType != 'PrimarySkill'">{{skills}}</span>  </h5>
+            
+        </ion-card-content>
+        </ion-card>
+      <h2>Interview Notes/Chats      </h2>
+      <hr>
+      <ion-card class="card-panel2">
+        <ion-card-content class="slide-body3"  > 
+         
+        </ion-card-content>
+        </ion-card>
+        <h2>Interview codes        </h2>
+        <hr>
+        <ion-card class="card-panel2">
+          <ion-card-content class="slide-body3"  > 
+          
+          </ion-card-content>
+          </ion-card>
+          <h2>Interview codes        </h2>
+          <hr>
+          <ion-card class="card-panel2">
+            <ion-card-content class="slide-body3"  > 
+              <ion-textarea placeholder="Write a comment"  [(ngModel)]="comment" style="border:1px solid #c8c7cc;margin-top: 2px;height: 92px;">
+                   
+              </ion-textarea>
+              <div class="row">
+                  <div class="col">
+                      <div style="font-size: 17px; font-weight: bold;">
+                        
+                        <ion-label  *ngIf="score >= '0' &&score <= '20' " class="_red">Novice </ion-label>
+                        <ion-label  *ngIf="score >= '21' && score <= '40' " class="_blue">Average</ion-label>
+                        <ion-label *ngIf="score >= '41' && score <= '60' "  class="_blue">Good</ion-label>
+                        <ion-label  *ngIf="score >= '61' && score <= '80' " class="_green">Expert</ion-label>
+                        <ion-label *ngIf="score >= '81' && score <= '100' "  class="_green">Guru</ion-label>
+                        <ion-label style="text-align:center"></ion-label>
+                        <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="score" >
+                            <ion-label range-left>0</ion-label>
+                            <ion-label range-right>100</ion-label>
+                        </ion-range>
+                       
+                      </div>
+                  </div>
+                </div>
+              <div>
+                  <ion-item style="border: 1px solid #c8c7cc; height: 1px;">
+                      <ion-label color="dark">Feedback</ion-label>
+                    <ion-select [(ngModel)]="finalVerdictChange" >
+                        <ion-option value="" disabled>Select</ion-option>
+                       
+                         <ion-option value="Approve">Approve</ion-option>
+                        <ion-option value="Hold">Hold</ion-option>
+                        <ion-option value="Rejected">Rejected</ion-option>      
+                    </ion-select>
+                  </ion-item>  
+                    
+              </div>
+            
+          </ion-card-content>
+            </ion-card>
+            <h2>Requirement Skills Rating  </h2>
+            <hr>
+            <ion-card class="card-panel2">
+              <ion-card-content class="slide-body3"  > 
+                
+                    <div style="font-size: 17px; font-weight: bold;">
+                        <ion-label class="_black">Javascript </ion-label>
+                      <div>
+                      <ion-label  *ngIf="Js_score >= '0' && Js_score <= '20' " class="_red">Novice </ion-label>
+                      <ion-label  *ngIf="Js_score >= '21' && Js_score <= '40' " class="_blue">Average</ion-label>
+                      <ion-label *ngIf="Js_score >= '41' && Js_score <= '60' "  class="_blue">Good</ion-label>
+                      <ion-label  *ngIf="Js_score >= '61' && Js_score <= '80' " class="_green">Expert</ion-label>
+                      <ion-label *ngIf="Js_score >= '81' && Js_score <= '100' "  class="_green">Guru</ion-label>
+                      <ion-label style="text-align:center"></ion-label>
+                      <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Js_score" >
+                          <ion-label range-left>0</ion-label>
+                          <ion-label range-right>100</ion-label>
+                      </ion-range>
+                      </div>
+                      
+                  </div>
+                  <div style="font-size: 17px; font-weight: bold;">
+                      <ion-label class="_black">HTML </ion-label>
+                    <div>
+                    <ion-label  *ngIf="Html_score >= '0' && Html_score <= '20' " class="_red">Novice </ion-label>
+                    <ion-label  *ngIf="Html_score >= '21' && Html_score <= '40' " class="_blue">Average</ion-label>
+                    <ion-label *ngIf="Html_score >= '41' && Html_score <= '60' "  class="_blue">Good</ion-label>
+                    <ion-label  *ngIf="Html_score >= '61' && Html_score <= '80' " class="_green">Expert</ion-label>
+                    <ion-label *ngIf="Html_score >= '81' && Html_score <= '100' "  class="_green">Guru</ion-label>
+                    <ion-label style="text-align:center"></ion-label>
+                    <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Html_score" >
+                        <ion-label range-left>0</ion-label>
+                        <ion-label range-right>100</ion-label>
+                    </ion-range>
+                    </div>
+                    
+                </div>
+                <div style="font-size: 17px; font-weight: bold;">
+                    <ion-label class="_black">Scrum master </ion-label>
+                  <div>
+                  <ion-label  *ngIf="Scrum_score >= '0' && Scrum_score <= '20' " class="_red">Novice </ion-label>
+                  <ion-label  *ngIf="Scrum_score >= '21' && Scrum_score <= '40' " class="_blue">Average</ion-label>
+                  <ion-label *ngIf="Scrum_score >= '41' && Scrum_score <= '60' "  class="_blue">Good</ion-label>
+                  <ion-label  *ngIf="Scrum_score >= '61' && Scrum_score <= '80' " class="_green">Expert</ion-label>
+                  <ion-label *ngIf="Scrum_score >= '81' && Scrum_score <= '100' "  class="_green">Guru</ion-label>
+                  <ion-label style="text-align:center"></ion-label>
+                  <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Scrum_score" >
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                  </ion-range>
+                  </div>
+                  
+              </div>
+              <div style="font-size: 17px; font-weight: bold;">
+                  <ion-label class="_black">NodeJs </ion-label>
+                <div>
+                <ion-label  *ngIf="NodeJs_score >= '0' && NodeJs_score <= '20' " class="_red">Novice </ion-label>
+                <ion-label  *ngIf="NodeJs_score >= '21' && NodeJs_score <= '40' " class="_blue">Average</ion-label>
+                <ion-label *ngIf="NodeJs_score >= '41' && NodeJs_score <= '60' "  class="_blue">Good</ion-label>
+                <ion-label  *ngIf="NodeJs_score >= '61' && NodeJs_score <= '80' " class="_green">Expert</ion-label>
+                <ion-label *ngIf="NodeJs_score >= '81' && NodeJs_score <= '100' "  class="_green">Guru</ion-label>
+                <ion-label style="text-align:center"></ion-label>
+                <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="NodeJs_score" >
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>100</ion-label>
+                </ion-range>
+                </div>
+                
+            </div>
+              <div style="font-size: 17px; font-weight: bold;">
+                  <ion-label class="_black">Css </ion-label>
+                <div>
+                <ion-label  *ngIf="Css_score >= '0' && Css_score <= '20' " class="_red">Novice </ion-label>
+                <ion-label  *ngIf="Css_score >= '21' && Css_score <= '40' " class="_blue">Average</ion-label>
+                <ion-label *ngIf="Css_score >= '41' && Css_score <= '60' "  class="_blue">Good</ion-label>
+                <ion-label  *ngIf="Css_score >= '61' && Css_score <= '80' " class="_green">Expert</ion-label>
+                <ion-label *ngIf="Css_score >= '81' && Css_score <= '100' "  class="_green">Guru</ion-label>
+                <ion-label style="text-align:center"></ion-label>
+                <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Css_score" >
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>100</ion-label>
+                </ion-range>
+                </div>
+                
+            </div>
+            <div style="font-size: 17px; font-weight: bold;">
+                <ion-label class="_black">Angular Js </ion-label>
+              <div>
+              <ion-label  *ngIf="Angular_score >= '0' && Angular_score <= '20' " class="_red">Novice </ion-label>
+              <ion-label  *ngIf="Angular_score >= '21' && Angular_score <= '40' " class="_blue">Average</ion-label>
+              <ion-label *ngIf="Angular_score >= '41' && Angular_score <= '60' "  class="_blue">Good</ion-label>
+              <ion-label  *ngIf="Angular_score >= '61' && Angular_score <= '80' " class="_green">Expert</ion-label>
+              <ion-label *ngIf="Angular_score >= '81' && Angular_score <= '100' "  class="_green">Guru</ion-label>
+              <ion-label style="text-align:center"></ion-label>
+              <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Angular_score" >
+                  <ion-label range-left>0</ion-label>
+                  <ion-label range-right>100</ion-label>
+              </ion-range>
+              </div>
+              
+            </div>
+            </ion-card-content>
+          </ion-card>
+    </div> 
+   
+  
+</ion-content>
+
+<ion-footer class="commonFooter">
+  <!-- <button ion-button full color='danger' (click)='goBack()'>Cancel</button> -->
+  
+  <button ion-button full color='dark' (click)="submit()">Submit
+    
+  </button>
+</ion-footer>

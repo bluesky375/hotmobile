@@ -1,0 +1,292 @@
+<ion-header>
+  <main-header></main-header>
+  
+</ion-header>
+
+<ion-content >
+<div class="dash_body">
+  <div class="card-container">
+    <ion-card class="left">
+      <ion-card-content>
+        <div class="card-body" (click)="gotoUsers()">
+            <div class="body-top">
+              <ion-icon class="_green" ios="ios-contact" md="md-contact"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_green">{{totalUsers}}</h1>
+              <span>Total Users</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card  class="right">
+      <ion-card-content>
+        <div class="card-body" (click)="gotoClients()">
+            <div class="body-top">
+             
+              <ion-icon class="_blue" name="briefcase"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_blue">{{totalClients}}</h1>
+              <span>Total Clients</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="card-container">
+    <ion-card class="left">
+      <ion-card-content>
+        <div class="card-body"  (click)="gotoRequirements()">
+            <div class="body-top">
+             
+              <ion-icon class="_purple" name="pulse"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_purple">{{totalRequirements}}</h1>
+              <span>Total Requirements</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="right">
+      <ion-card-content>
+        <div class="card-body"  (click)="gotoCandidates()">
+            <div class="body-top">
+             
+              <ion-icon class="_red" name="school"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_red">{{totalCandidates}}</h1>
+              <span>Total Candidates</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <div class="card-container">
+    <ion-card class="green-theme left">
+      <ion-card-content>
+        <div class="card-body" (click)="gotoRequirements()">
+            <div class="body-top">
+              <!-- <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon> -->
+              <ion-icon class="_white" name="folder-open"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_white">{{openRequirements}}</h1>
+              <span class="_white">Open Requirement</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="purple-theme right">
+      <ion-card-content>
+        <div class="card-body" (click)="gotoRequirements()">
+            <div class="body-top">
+              
+              <ion-icon class="_white" name="lock"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_white">{{closeRequirements}}</h1>
+              <span class="_white">Close Requirement</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="card-container">
+    <ion-card class="blue-theme left">
+      <ion-card-content>
+        <div class="card-body" (click)="gotoCandidates()">
+            <div class="body-top">
+              
+              <ion-icon class="_white" name="search"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_white">{{screenedCandidates}}</h1>
+              <span class="_white">Screened Candidates</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="red-theme right"> 
+      <ion-card-content>
+        <div class="card-body" (click)="gotoCandidates()">
+            <div class="body-top">
+              
+              <ion-icon class="_white" name="warning"></ion-icon>
+            </div>
+            <div class="body-bottom">
+              <h1 class="_white">{{unScreenedCandidates}}</h1>
+              <span class="_white">Unscreened Candidates</span>
+            </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+  <div class="card-container2" style="margin-top: -3px;">    
+      <ion-card  >
+        <ion-card-content  class="green-theme card-panel"  (click)="hide()">  
+            <ion-icon class="add" name="ios-add-circle-outline"  item-right  ></ion-icon> 
+            <div class="containerText"><span class="_white">Open Requirements - Analytics</span> </div> 
+            
+            
+        </ion-card-content>
+       
+        <ion-card-content  class="card-panel2"  *ngIf="hideMe">
+
+            <button ion-button round outline icon-right  (click)="viewAllRequirements()" >
+                View All
+                <ion-icon name="md-arrow-dropdown"></ion-icon>
+            </button> 
+          <ion-card *ngFor="let value of requirementStatics ; let i=index">
+            <div class="container" *ngIf="i<5" >
+            <div class="row-table"  >
+                <div class = "col"> 
+                  <span class="panel-heading"  > {{value.jobTitle}}</span></div>
+            </div>
+            <div class = "row" >
+                <div class = "col" ><b>Status </b>
+                  <span class="value"   (click)="openModal(value)" >{{value.lastMileStone}}</span>
+                </div>
+                <div class = "col" *ngIf="value.total" (click)="internalModal(value.positionId,value.jobTitle)" ><b>Internal Sub. </b>
+                  <span *ngIf="!value.answered"  >0</span >
+                    {{value.answered}}/{{value.total}}
+                </div>
+                <div class = "col" *ngIf="!value.total"  ><b>Internal Sub. </b>
+                 <span class="value">---</span>
+                </div>
+             </div>
+             <div class = "row"  >
+                <div class = "col" *ngIf="value.answered" (click)="screenModal(value.positionId,value.jobTitle)"><b>Screened </b>
+                 <span  *ngIf="!value.screened"  >0</span>
+                 {{value.screened}}/{{value.answered}}
+                </div>
+                <div class = "col" *ngIf="!value.answered" ><b>Screened </b>
+                  <span class="value">---</span>
+                </div>
+                <div class = "col" *ngIf="value.approved" (click)="clientModal(value.positionId,value.jobTitle)"><b>Client Sub </b>
+                  <span  *ngIf="!value.clientSubmission"   >0</span>
+                  {{value.clientSubmission}}/{{value.approved}}
+                 </div>
+                 <div class = "col" *ngIf="!value.approved" ><b>Client Sub </b>
+                   <span class="value">---</span>
+                 </div>
+             </div>
+            </div>
+          </ion-card>
+        </ion-card-content>
+      </ion-card> 
+    </div>
+ 
+    <div class="card-container2" >    
+        <ion-card>
+          <ion-card-content  class="blue-theme card-panel" (click)="hideRec()">   
+              <ion-icon class="add" name="ios-add-circle-outline"  item-right  ></ion-icon>  
+              <div class="containerText">
+                <span class="_white">Recruiter - Analytics</span>
+              </div>
+              
+          </ion-card-content>
+         
+          <ion-card-content  class="card-panel2" *ngIf="hiderec">
+              <button ion-button round outline icon-right  (click)="viewAllRecruiters()" >
+                  View All
+                  <ion-icon name="md-arrow-dropdown"></ion-icon>
+              </button> 
+            <ion-card *ngFor="let rec of newtrackRecr ; let i=index">
+              <div class="container" *ngIf="i<5">
+              <div class="row-table"  >
+                  <div class = "col"> 
+                    <span class="panel-heading" (click)="gotoEditUser(rec.recId)" > {{rec.fname}}</span></div>
+              </div>
+              <div class = "row" >
+                  <div class = "col" ><b>Submission </b>
+                    <span class="value" >
+                      {{rec.candidates}}
+                    </span>
+                  </div>
+                  <div class = "col"  ><b>Approved </b>
+                    <span class="value"  >
+                        {{rec.approved}}
+                    </span >    
+                  </div>                    
+               </div>
+               <div class = "row"  >
+                  <div class = "col"  ><b>Avg Cand Resp Time</b>
+                   <span  >
+                     {{rec.avgTime}}
+                   </span>
+                  </div>
+                  <div class = "col" ><b>Last Active </b>
+                    <span>
+                      {{rec.lastActive | date:'medium'}}
+                    </span>   
+                  </div>   
+               </div>
+              </div>
+            </ion-card>
+          </ion-card-content>
+        </ion-card> 
+      </div>
+      <div class="card-container2">    
+        <ion-card>
+          <ion-card-content  class="purple-theme card-panel" item-right (click)="hideTs()">   
+              <ion-icon class="add" name="ios-add-circle-outline"   ></ion-icon>  
+              <div class="containerText">
+                <span class="_white">Technical Screener - Analytics</span>
+              </div>
+              
+              
+          </ion-card-content>
+         
+          <ion-card-content  class="card-panel2" *ngIf="hidets">
+              <button ion-button round outline icon-right  (click)="viewAllScreener()" >
+                  View All
+                  <ion-icon name="md-arrow-dropdown"></ion-icon>
+              </button> 
+            <ion-card *ngFor="let ts of newtrackTSc ; let i=index">
+              <div class="container" *ngIf="i<5">
+              <div class="row-table"  >
+                  <div class = "col"> 
+                    <span class="panel-heading" (click)="gotoEditUser(ts.tsId)" > {{ts.fname}}</span></div>
+              </div>
+              <div class = "row" >
+                  <div class = "col" ><b>Screened </b>
+                    <span class="value" >
+                      {{ts.screened}}
+                    </span>
+                  </div>
+                  <div class = "col"  ><b>Approved </b>
+                    <span class="value"  >
+                        {{ts.approved}}
+                    </span >    
+                  </div>                    
+               </div>
+               <div class = "row"  >
+                  <div class = "col"  ><b>Avg Resp Time</b>
+                   <span  >
+                     {{ts.avgTime}}
+                   </span>
+                  </div>
+                  <div class = "col" ><b>Last Active </b>
+                    <span>
+                      {{ts.lastActive | date:'medium'}}
+                    </span>   
+                  </div>   
+               </div>
+              </div>
+            </ion-card>
+          </ion-card-content>
+        </ion-card> 
+      </div>
+</div>
+
+
+
+</ion-content>

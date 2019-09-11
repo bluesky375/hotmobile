@@ -1,0 +1,186 @@
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn">
+    <button ion-button class="btn1" outline (click)="goBack()">
+      <ion-icon name="undo"></ion-icon>
+    </button>
+    <h1>Select Submission Type</h1>
+  </div>
+</ion-header>
+<ion-content>
+    <ion-card *ngFor="let details of selecteddetails">
+        <ion-card-content style=" padding: 6px 0px;">
+          <ion-list>
+            <ion-card-header class="headerClass">
+              <div>
+                <div style="font-size: 18px;">{{details.firstName}} {{details.lastName}}</div>
+                <div style="font-weight: 400">{{details.emailId}}</div>
+                <hr>
+              </div>
+            </ion-card-header>
+            <ion-item class="_row">
+              <ion-label floating>Submission Type<span class="astric">*</span></ion-label>
+              <ion-select class="fieldBorder" [(ngModel)]="details.mySubType"  (ngModelChange)="onSelectChange($event)">
+                <ion-option value="" disabled=true>Select</ion-option>
+                <ion-option value="One Way">One Way</ion-option>
+                <ion-option value="Prospect">Prospect</ion-option>
+                <ion-option value="Zoom">Zoom</ion-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="details.mySubType == 'Zoom' ">
+                <ion-item class="_row">
+                    <ion-label floating>Screen By<span class="astric">*</span></ion-label>
+                    <ion-select class="fieldBorder" [(ngModel)]="details.selectedScr">
+                      <ion-option value="" disabled=true>Select</ion-option>
+                      <ion-option *ngFor="let data of scrData" >{{data.firstName}}</ion-option>
+                    </ion-select>
+                </ion-item>
+
+           
+            <ion-item class="_row">
+              <ion-label floating class="labelBorder">Screening Date <span class="astric">*</span>
+              </ion-label>
+              <ion-input class="fieldBorder ScheduleDate" 
+                        ion-datepicker [(value)]="details.recScheduledDate" readonly  [min]="details.screeningDate" locale="en-US" [ngModel]="details.recScheduledDate | date: 'dd-MMM-yyyy'" >
+                    </ion-input>
+               
+              </ion-item> 
+      
+            <ion-item class="_row">
+              <ion-label floating class="labelBorder">Select Time <span class="astric">*</span>
+              </ion-label>
+                    <ion-input class="fieldBorder ScheduleDate" readonly [(value)]="details.recScheduledTime"  [ngModel]="details.recScheduledTime" (tap)="selectdate()">
+              </ion-input>
+            </ion-item>
+           
+            
+            <ion-item class="_row">
+                <ion-label floating>Time Zone<span class="astric">*</span></ion-label>
+                <ion-select class="fieldBorder" [(ngModel)]="details.timezone">
+                    <ion-option value="" selected="" disabled="">Select</ion-option>
+                    <ion-option value="Asia/Kolkata">(GMT+05:30) India Standard Time - Kolkata</ion-option>
+                    <ion-option value="America/New York">(GMT-04:00) Eastern Time - New York</ion-option>
+                    <ion-option value="America/Chicago">(GMT-05:00) Central Time - Chicago</ion-option>
+                    <ion-option value="America/Los Angeles">(GMT-07:00) Pacific Time - Los Angeles</ion-option>
+                </ion-select>
+              </ion-item>
+
+              </div>
+
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
+
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='cancelData()'>Close</button>
+  <button ion-button full color='dark' (click)='submitCandidate()'>Submit</button>
+
+</ion-footer>
+<!---------->
+
+<ion-content class="timeDiv" padding *ngIf="timeDiv == true">
+  <ion-card>
+      <ion-card-header>
+          <div text-center>
+              <span (click)="ampm = 'AM'" [ngClass]="{'selected-am-pm': ampm === 'AM'}">AM</span>
+              <span (click)="ampm = 'PM'" [ngClass]="{'selected-am-pm': ampm === 'PM'}">PM</span>
+          </div>
+          <div class="selected-time" text-center>
+              <span [ngClass]="{'active-time-unit': selecting === 'hour'}"
+                    (click)="selecting = 'hour'">{{ hour }}</span>
+              <span>:</span>
+              <span [ngClass]="{'active-time-unit': selecting === 'minute'}"
+                    (click)="selecting = 'minute'">{{ minute }}</span>
+          </div>
+      </ion-card-header>
+      <ion-card-content>
+          <div #hourClock class="clock hour-clock" *ngIf="selecting === 'hour'" (click)="tappedClock($event)">
+              <div class="tick-number">
+                  <div class="clock-number">12</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">1</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">2</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">3</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">4</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">5</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">6</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">7</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">8</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">9</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">10</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">11</div>
+              </div>
+              <div class="clock-hand" [ngStyle]="hourHandStyle"></div>
+          </div>
+          <div #minuteClock class="clock minute-clock" *ngIf="selecting === 'minute'" (click)="tappedClock($event)">
+              <div class="tick-number">
+                  <div class="clock-number">00</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">05</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">10</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">15</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">20</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">25</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">30</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">35</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">40</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">45</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">50</div>
+              </div>
+              <div class="tick-number">
+                  <div class="clock-number">55</div>
+              </div>
+              <div class="clock-hand" [ngStyle]="minuteHandStyle"></div>
+          </div>
+      </ion-card-content>
+      <ion-toolbar>
+        <ion-buttons >
+            <button ion-button
+                    no-lines
+                    (click)="dismiss()">Done</button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-card>
+ 
+</ion-content>

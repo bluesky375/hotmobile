@@ -1,0 +1,33 @@
+<!-- Generated template for the RequirementPopoverComponent component -->
+<ion-list  >
+    <!-- <button ion-item (click)="editUser()">
+      Details/Edit
+    </button> -->
+    <button ion-item (click)="candidateReq()">
+      Candidates
+    </button>
+    <button ion-item (click)="gotoEditRequirement()">
+      Edit/Details
+   </button>
+    <button ion-item (click)="questionAdd()">
+        Questions
+     </button>
+     <button ion-item (click)="addResources()">
+        Add Resources
+      </button>
+      <button  *ngIf="lastMileStone == 'CandidateAdded'" ion-item (click)="addNoCandidates()">
+          Add no more Candidates
+      </button>
+      <button  *ngIf="addNoMoreCandidates == 'Yes' && lastMileStone == 'CandidateAdded'" ion-item (click)="allowCandidates()">
+         Allow Adding Candidates
+        </button>
+      <button ion-item (click)="closeReq()">
+          Close Requirement
+        </button> 
+      <!-- <button ion-item (click)="viewLogs()">
+           View Logs
+      </button>  -->
+      <button ion-item (click)="ccReq()">
+           CC Requirement
+      </button> 
+  </ion-list>

@@ -1,0 +1,338 @@
+<!--
+  Generated template for the EditdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <main-header></main-header>
+</ion-header>
+
+
+<ion-content>
+      <ion-card>
+          <ion-card-header>
+            Edit Candidate
+          </ion-card-header>
+        
+          <ion-card-content>
+              <ion-list >
+                  <!-- <ion-item class="_row" >
+                      <ion-label floating class="inputlist">Role<span class="astric">*</span> : </ion-label>
+                      <ion-select [(ngModel)]="details.role" disabled=true >
+                        <ion-option value="">Select</ion-option>
+                        <ion-option value="{{role}}" *ngFor="let role of rolls" >{{role}}</ion-option>
+                      </ion-select>
+                  </ion-item> -->
+              
+                   
+                  <ion-item  class="_row" >
+                    <ion-label floating class="inputlist">First Name<span class="astric">*</span> : </ion-label>
+                    <ion-input type="text" [(ngModel)]="CandidateDetails.firstName" ></ion-input>
+                  </ion-item> 
+  
+                  <ion-item  class="_row">
+                      <ion-label floating class="inputlist">Last Name<span class="astric">*</span> : </ion-label>
+                      <ion-input type="text" [(ngModel)]="CandidateDetails.lastName" ></ion-input>
+                    </ion-item>
+                  
+                   
+  
+                    <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Email Id<span class="astric">*</span> : </ion-label>
+                        <ion-input type="email" [(ngModel)]="CandidateDetails.emailId" [readonly]="isReadonly" ></ion-input>
+                      </ion-item>
+                    
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Contact number<span class="astric">*</span> : </ion-label>
+                        <ion-input type="text" [(ngModel)]="CandidateDetails.cellPhoneNumber"></ion-input>
+                      </ion-item>
+  
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Alternate Contact number : </ion-label>
+                        <ion-input type="text" [(ngModel)]="CandidateDetails.homePhoneNumber" ></ion-input>
+                      </ion-item>
+                      
+                </ion-list>
+          </ion-card-content>
+        
+        </ion-card>
+         <ion-card >
+          <ion-card-header>
+              Technical Screener Details
+          </ion-card-header>
+          <ion-card-content>
+              <ion-list >
+                  <div class="uploadSection">
+                    <div class="inc-dec-btn-txt">
+                        <h1>Technical Screener Skills</h1>
+                        <div class="inc-dec-btn">
+                            <button ion-button full color='danger' (click)="addskillValue()">+</button>
+                            <button ion-button full color='dark' (click)="deleteskillValue()" >-</button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="tsDetails"  *ngFor="let skill of skillArray;" >
+                      <ion-item class="_row "   >
+                          <ion-label floating class="inputlist">Skill Type : </ion-label>
+                          <ion-select [(ngModel)]="skill.skillType">
+                                   <ion-option value="PrimarySkill" >Primary skills</ion-option>
+                                  <ion-option value="SecondarySkill" >Secondary Skills</ion-option> 
+                          </ion-select>
+                      </ion-item>
+                      <ion-item  class="_row">
+                          <ion-label floating class="inputlist">Skill Name	 : </ion-label>
+                          <ion-input type="text" [(ngModel)]='skill.skills'></ion-input>
+                        </ion-item> 
+                      
+                      <ion-item  class="_row"> 
+                      <ion-label floating class="inputlist">Years : </ion-label>
+                      <ion-input type="text" [(ngModel)]='skill.years' ></ion-input>
+                      </ion-item>
+  
+                      <ion-item  class="_row">
+                          <ion-label floating class="inputlist">Months : </ion-label>
+                          <ion-input type="text" [(ngModel)]='skill.months'></ion-input>
+                      </ion-item>
+                       
+                            
+                  </div>
+                  <!-- <div class="uploadSection  uploadSection2">
+                      <h1 floating>Rate Per Screening<span class="astric">*</span> : </h1>
+                  </div>
+                  <ion-item  class="_row tesBottom">
+                      <ion-input class="left" type="text" [(ngModel)]=ratings></ion-input>
+                      <ion-select class="right" [(ngModel)]="gaming1"  >
+                          <ion-option value="Dollar">USD</ion-option>
+                          <ion-option value="INR">INR</ion-option>
+                      </ion-select>
+                  </ion-item>  -->
+                    
+                </ion-list>
+          </ion-card-content>
+         
+        </ion-card>
+         <ion-card>
+           
+            <ion-card-content>
+                <ion-list>
+                    <ion-item class="_row">
+                      <ion-label floating class="inputlist">Current Job Title <span class="astric">*</span>  : </ion-label>
+                      <ion-input type="text" [(ngModel)]="CandidateDetails.jobTitle"></ion-input>
+                    </ion-item>
+                  
+                    <ion-item  class="_row">
+                      <ion-label floating class="inputlist">Current Employer <span class="astric">*</span>: </ion-label>
+                      <ion-input type="text" [(ngModel)]="CandidateDetails.currentEmployer"></ion-input>
+                    </ion-item>
+    
+                    <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Availability <span class="astric">*</span>: </ion-label>
+                        <ion-select  type="text" [(ngModel)]="CandidateDetails.availability">
+                            <ion-option value=""  disabled=true>Select</ion-option>
+                            <ion-option value="Immediate">Immediate</ion-option>
+                            <ion-option value="1 Week Notice">1 Week Notice</ion-option>
+                            <ion-option value="2 Week Notice">2 Week Notice</ion-option>
+                            <ion-option value="3 Week Notice">3 Week Notice</ion-option>
+                            <ion-option value="4 Week Notice">4 Week Notice</ion-option>
+                            <ion-option value="5 Week Notice">5 Week Notice</ion-option>
+                            <ion-option value="6 Week Notice">6 Week Notice</ion-option>
+                            <ion-option value="7 Week Notice">7 Week Notice</ion-option>
+                            <ion-option value="8 Week Notice">8 Week Notice</ion-option>
+                            <ion-option value="8+ Week Notice">8+ Week Notice</ion-option>
+                            
+                        </ion-select>
+                      </ion-item>
+                    
+                      <ion-item  class="_row"> 
+                        <ion-label floating class="inputlist">Current Location <span class="astric">*</span>: </ion-label>
+                        <ion-input type="text" [(ngModel)]="CandidateDetails.currentLocation"></ion-input>
+                      </ion-item>
+    
+                       <ion-item  class="_row">
+                          <ion-label floating class="inputlist">Division: </ion-label>
+                          <ion-select  type="text" [(ngModel)]="CandidateDetails.division">
+                            <ion-option value=""  disabled=true>Select</ion-option>
+                            <ion-option value="India">India</ion-option>
+                            <ion-option value="USA">USA</ion-option>
+                            
+                          </ion-select>
+                        </ion-item>
+                      
+                        <ion-item  class="_row">
+                          <ion-label floating class="inputlist">Work Authorization  : </ion-label>
+                          <ion-select  type="text" [(ngModel)]="CandidateDetails.immigrationStatus">
+                            <ion-option value=""  disabled=true>Select</ion-option>
+                            <ion-option value="B1 Visa">B1 Visa</ion-option>
+                            <ion-option value="CPT">CPT</ion-option>
+                            <ion-option value="Canadian Citizen">Canadian Citizen</ion-option>
+                            <ion-option value="Citizen">Citizen</ion-option>
+                            <ion-option value="E2 EAD">E2 EAD</ion-option>
+                            <ion-option value="E3">E3</ion-option>
+                            <ion-option value="EAD">EAD</ion-option>
+                            <ion-option value="EAD-GC">EAD-GC</ion-option>
+                            <ion-option value="F1 Visa">F1 Visa</ion-option>
+                            <ion-option value="Green Card">Green Card</ion-option>
+                            <ion-option value="H1 Transfer">H1 Transfer</ion-option>
+                            <ion-option value="H1 Visa">H1 Visa</ion-option>
+                            <ion-option value="H4 EAD">H4 EAD</ion-option>
+                            <ion-option value="I-140 approved ">I-140 approved</ion-option>
+                            <ion-option value="L1 Visa">L1 Visa</ion-option>
+                            <ion-option value="L2 EAD">L2 EAD</ion-option>
+                            <ion-option value="OPT">OPT</ion-option>
+                            <ion-option value="OPT EAD">OPT EAD</ion-option>
+                            <ion-option value="TN Visa">TN Visa</ion-option>
+                        </ion-select>
+                        </ion-item>
+                       
+                          <div class="uploadSection  uploadSection2">
+                              <h1 floating>Total Experience<span class="astric">*</span> : </h1>
+                              <div class="row" >
+                                  <div class="col"  >
+                                      <ion-label floating class="inputlist"> years : </ion-label>
+                                  </div>
+                                  <div class="col" >
+                                      <ion-label floating class="inputlist"> months : </ion-label>
+                                  </div>
+                              </div>
+                           </div>
+                         <ion-item class="_row tesBottom">
+                            <ion-input class="left" type="text" [(ngModel)]=CandidateDetails.totalExperienceYear>years</ion-input>
+                            <ion-input class="right"  [(ngModel)]=CandidateDetails.totalExperienceMonth >months</ion-input>
+                         </ion-item> 
+                         
+                         
+                          <div class="uploadSection  uploadSection2">
+                              <h1 floating>US Experience<span class="astric">*</span> : </h1>
+                              <div class="row" >
+                                  <div class="col"  >
+                                      <ion-label floating class="inputlist"> years : </ion-label>
+                                  </div>
+                                  <div class="col" >
+                                      <ion-label floating class="inputlist"> months : </ion-label>
+                                  </div>
+                              </div>
+                           </div>
+                         <ion-item class="_row tesBottom">
+                            <ion-input class="left" type="text" [(ngModel)]=usExperienceYear>years</ion-input>
+                            <ion-input class="right"  [(ngModel)]=CandidateDetails.usExperienceMonth >months</ion-input>
+                         </ion-item> 
+                       
+                        <div class="uploadSection  uploadSection2">
+                            <h1 floating>Pay Rate<span class="astric">*</span> : </h1>
+                        </div>
+                        <ion-item class="_row tesBottom" >
+                                
+                              <ion-input class="left" type="text" [(ngModel)]=CandidateDetails.payRate></ion-input>
+                              
+                              <ion-select class="right" [(ngModel)]=CandidateDetails.payRateCurrency   >
+                                  <ion-option value="Dollar">USD</ion-option>
+                                  <ion-option value="INR">INR</ion-option>
+                              </ion-select>
+                        </ion-item> 
+                        <div class="uploadSection  uploadSection2">
+                            <h1 floating>Bill Rate : </h1>
+                        </div>
+                        <ion-item class="_row tesBottom" >
+                          
+                              <ion-input class="left" type="text" [(ngModel)]=billRate></ion-input>
+                              <ion-select class="right" [(ngModel)]=CandidateDetails.billRateCurrency   >
+                                  <ion-option value="Dollar">USD</ion-option>
+                                  <ion-option value="INR">INR</ion-option>
+                              </ion-select>
+                        </ion-item> 
+                       
+                        
+                        
+                            <ion-item class="_row "   >
+                                <ion-label floating class="inputlist">Pay Type : </ion-label>
+                                <ion-select  type="text" [(ngModel)]="CandidateDetails.payType">
+                                    <ion-option value=""  disabled=true >Select</ion-option>
+                                    <ion-option value="1099">1099</ion-option>
+                                    <ion-option value="Corp-to-Corp">Corp-to-Corp</ion-option>
+                                    <ion-option value="H1 transfer">H1 transfer</ion-option>
+                                    <ion-option value="w2: Benefited">w2: Benefited</ion-option>
+                                    <ion-option value="Monthly">Monthly</ion-option>
+                                    <ion-option value="Own Employee">Own Employee</ion-option>
+                                    <ion-option value="Hourly">Hourly</ion-option>
+                                    <ion-option value="Full Time">Full Time</ion-option>
+                                    <ion-option value="w2: Hourly">w2: Hourly</ion-option>
+                                </ion-select>
+                            </ion-item>
+                
+                                  
+                            
+                        <ion-item  class="_row">
+                          <ion-label floating class="inputlist">Address Line 1 : </ion-label>
+                          <ion-input type="text" [(ngModel)]="CandidateDetails.address"></ion-input>
+                        </ion-item>
+    
+                    <ion-item  class="_row">
+                        <ion-label floating class="inputlist">Address Line 2 : </ion-label>
+                        <ion-input type="text" [(ngModel)]="CandidateDetails.address2"></ion-input>
+                     </ion-item>
+                    
+                    <ion-item  class="_row"> 
+                      <ion-label floating class="inputlist">Zip Code : </ion-label>
+                      <ion-input type="text" [(ngModel)]="CandidateDetails.zipCode"></ion-input>
+                    </ion-item>
+  
+                    <ion-item  class="_row">
+                        <ion-label floating class="inputlist">City : </ion-label>
+                        <ion-input type="text" [(ngModel)]="CandidateDetails.city"></ion-input>
+                      </ion-item>
+                    
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist">State : </ion-label>
+                        <ion-input type="text" [(ngModel)]="CandidateDetails.state"></ion-input>
+                      </ion-item>
+
+                      <ion-item  class="_row">
+                          <ion-label floating class="inputlist"> Country : </ion-label>
+                          <ion-input type="text" [(ngModel)]="CandidateDetails.country"></ion-input>
+                      </ion-item>
+                      <ion-item  class="_row">
+                        <ion-label floating class="inputlist"> Note : </ion-label>
+                        <ion-textarea type="text" [(ngModel)]="CandidateDetails.note"></ion-textarea>
+                    </ion-item>    
+                  </ion-list>
+            </ion-card-content>
+          
+          </ion-card> 
+  
+          <ion-card >
+            <ion-card-header>
+              Candidate Skill Analysis
+            </ion-card-header>
+            <ion-card-content style="border:1px solid beige;margin-left:1px;margin-right: 5px ">
+              <h2><b>Resume</b></h2>
+              <ion-scroll style="width:100%; height:300px" scrollY="true">
+                    <p>{{detailsResume}}</p>
+              </ion-scroll> 
+            </ion-card-content>
+           
+          </ion-card>
+  
+          <ion-card>
+              <ion-card-header>
+                  File Upload
+              </ion-card-header>
+              <ion-card-content>
+                  <ion-list>
+                      <div class="uploadSection">
+                        <h1>Resume : </h1>
+                        <button ion-button color="light" full>Browse</button>
+                      </div>
+                      <div class="uploadSection">
+                          <h1>Profile Image : </h1>
+                          <button ion-button color="light" full>Browse</button>
+                        </div>
+                    </ion-list>
+              </ion-card-content>
+            
+            </ion-card>
+  </ion-content>
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='goBack()'>Cancel</button>
+  <button ion-button full color='dark' (click)='updateCandidate()'>Submit</button>
+</ion-footer>

@@ -1,0 +1,59 @@
+<!--
+  Generated template for the UsersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+            <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+            <h1>Manage Users</h1>
+            <button ion-button color="dark" outline (click)="gotoAddUser()">Add User</button>
+    </div>
+    <ion-row center >
+       
+            <ion-col>
+               <ion-searchbar
+               [(ngModel)]="myInput">
+             </ion-searchbar>
+           </ion-col> 
+           
+           
+         </ion-row>  
+</ion-header>
+
+
+<ion-content>
+    
+    <ion-list>
+            
+ 
+            <div class="body" *ngFor="let user of userObj | search : myInput"  >
+                <div class="body-left col">
+                    <button ion-item (click)="gotoEditUser(user.id)">
+                        <h1> {{ user.firstName }} {{user.lastName}}({{user.role}})</h1>
+                        
+                        <div class="inner-body" >
+                          <label class="inner-left">Email id :  <span >{{user.emailId}}</span></label> 
+                        </div>
+                        <div class="inner-body " >
+                          <label class="inner-left" style="width:250px;">Status :  <span style="text-overflow:ellipsis ;text-align-last: auto" >{{user.enabledStatus }}</span></label> 
+                      </div>
+                    </button>  
+                </div>
+                <div class="body-right">   
+                    <button ion-item (click)="presentPopover(1,$event,user)" >  
+                            <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+                    </button>  
+                </div>
+            </div>          
+              
+    </ion-list>
+
+      <ion-fab class="fab-btn" title="Filter" >
+        <button ion-fab (click)="openModal(user)"> <ion-icon name="ios-funnel"></ion-icon></button>
+      </ion-fab> 
+     
+      
+</ion-content>

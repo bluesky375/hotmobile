@@ -1,0 +1,43 @@
+page-general-question {
+    ion-header{
+        .addBtn{
+            display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+                flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+            }
+            // h1{
+            //     font-size: 18px;
+            //     font-weight: bold;
+            //     flex: 6;
+            //     margin: 10px;
+            // }
+           .btn2{
+               // flex: 5;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #343434;
+                margin-right: 0px;
+            }
+            .btn3{
+                //flex: 5;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #9a9393;
+                margin-left: 0px;
+            }
+        }
+    }
+    ion-card{
+        .row{
+            font-size: 17px;
+        }
+    }
+    
+}

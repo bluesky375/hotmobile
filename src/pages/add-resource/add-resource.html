@@ -1,0 +1,129 @@
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+      <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+        <h1>Resource : {{jobTitle}}</h1>
+        
+</div>
+</ion-header>
+
+<ion-content >
+       
+<div class="dash_body">
+  
+  <div class="card-container">
+    <ion-card class="left" >
+        <ion-card-content>
+            <div class="card-body"  >
+                <div class="body-top">
+                  <ion-icon class="_blue" ios="ios-add" md="md-add" (click)="goAddResource()"></ion-icon>
+                </div>
+                <div class="body-bottom">
+                  <h1 class="_black">Add Resource</h1>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <ion-card  class="right" *ngIf="!(reqResourcesAddedList.includes('CSM'))">
+        <ion-card-content>
+            <div class="card-body" >
+                <div class="body-top" >
+                  <ion-icon class="_blue" ios="ios-add" md="md-add" (click)="goCSM()"></ion-icon>
+                </div>
+                <div class="body-bottom">
+                  <h1 class="_black">CSM</h1>
+                  <!-- <span>Total Requirements</span> -->
+                </div>
+            </div>
+        </ion-card-content>
+      </ion-card>
+  </div>
+  <div class="card-container">
+    <ion-card class="left" *ngIf="!(reqResourcesAddedList.includes('TechnicalScreener'))">
+        <ion-card-content>
+            <div class="card-body"  >
+                <div class="body-top">
+                  <ion-icon class="_blue" ios="ios-add" md="md-add" (click)="goTechScreener()"></ion-icon>
+                </div>
+                <div class="body-bottom">
+                  <h1 class="_black">Technical Screener</h1>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <ion-card  class="right" *ngIf="!(reqResourcesAddedList.includes('VpOfSales'))"> 
+        <ion-card-content>
+            <div class="card-body" >
+                <div class="body-top" >
+                  <ion-icon class="_blue" ios="ios-add" md="md-add" (click)="goVpSales()"></ion-icon>
+                </div>
+                <div class="body-bottom">
+                  <h1 class="_black">VP of Sales</h1>
+                  <!-- <span>Total Requirements</span> -->
+                </div>
+            </div>
+        </ion-card-content>
+      </ion-card>
+  </div>
+  <div class="card-container">
+      <ion-card class="left" *ngIf="!(reqResourcesAddedList.includes('ManagerOfRecruiting'))">
+        <ion-card-content>
+          <div class="card-body" >
+              <div class="body-top">
+                <ion-icon class="_blue" ios="ios-add" md="md-add" (click)="goMgrRec()" ></ion-icon>
+              </div>
+              <div class="body-bottom">
+                <h1 class="_black">Mgr of recruiting</h1>
+                <!-- <span>Total Requirements</span> -->
+              </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="right">
+        <ion-card-content>
+          <div class="card-body">
+              <div class="body-top">
+                <ion-icon class="_blue" ios="ios-add" md="md-add" (click)="goRecruiter()"></ion-icon>
+              </div>
+              <div class="body-bottom">
+                <h1 class="_black">Recruiter</h1>
+                <!-- <span>Total Candidates</span> -->
+              </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      
+    </div>
+   
+      <div *ngFor="let res of display_result">
+        <div class="container3">
+              <ion-card style="max-height: 220px">
+                  <ion-card-content>
+                      <ion-icon style="font-size: 19px; float: left;color: #eceaea;margin-top: -8px;margin-left: -10px;" *ngIf="res.lead == null || res.lead == false" name="school" (click)="changeLead(res)"></ion-icon>
+                      <ion-icon style="font-size: 20px; float: left;color:green;margin-top: -8px;margin-left: -10px;" *ngIf="res.lead == true" name="school" (click)="removeLead(res)"></ion-icon>
+                      <div class="card-body"  >
+
+                          <div class="body-top" *ngIf="res.imageUrl != null">
+                              <img (click)="editResource(res.userId)" src={{res.imageUrl}}  class="image3"/>
+                          </div>
+                          <div class="body-top" *ngIf="res.imageUrl == null" >
+                              <img (click)="editResource(res.userId)" src="assets/images/user-4.png" class="image3" >
+                          </div>      
+                          <div class="body-bottom" >
+                              <h3 class="_black" style="text-overflow: ellipsis;font-weight: bold;" (click)="editResource(res.userId)">{{res.firstName}}</h3>
+                               <span style="margin-left: -19px">{{res.dgRoleName}}</span>
+                               <span *ngIf="res.dgRoleName == null" style="margin-left: -19px">{{res.role}}</span>
+                               
+                          </div>
+                      </div>
+                      <div class="delete" style="color:#e32626;font-size: 20px;padding: 5px;float:right;margin-top: -27px;margin-right: -17px">
+                          <ion-icon name="ios-trash" (click)="deleteResource(res)"></ion-icon>
+                      </div>
+                    </ion-card-content>
+              </ion-card>
+             <!-- <h1 class="_black">{{rec.firstName}}</h1>            -->
+          </div>        
+      </div>
+</div>
+
+</ion-content>

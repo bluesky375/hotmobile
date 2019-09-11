@@ -1,0 +1,170 @@
+<!--
+  Generated template for the CandidateDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+      <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+      <h1>Candidate Details</h1>
+   </div>   
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+     <ion-card-content  class="card-panel2"  >
+          
+          <div class="container"  >
+            
+           
+            <div class = "row" >
+                <div class = "col" ><b>Consultant Name: </b>
+                  <span class="value" >{{detail2.firstName}} {{detail2.lastName}}</span>
+                </div>           
+             </div>
+              <div class = "row" >
+              <div class = "col"   ><b>Current Job Title:</b>
+                <span   >{{detail2.jobTitle}}</span >
+                 
+              </div>              
+           </div>
+           <div class = "row" >
+            <div class = "col" ><b>E-Mail: </b>
+              <span   >{{detail2.emailId}}</span>  
+            </div>             
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Phone No: </b>
+              <span class="value">{{detail2.cellPhoneNumber}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>consultant Skills: </b>
+                <div class="row">
+                  <div class="col">
+                    <b>Skill: </b>
+                  </div>
+                  <div class="col">
+                      <b>Experience: </b>
+                  </div>
+                </div> 
+                <div class="row">
+                    <div class="col">
+                        <span class="value">{{detail2.candidateSkillsSet[0].skills}}</span>
+                      </div>
+                    <div class="col">
+                      <span class="value">{{detail2.candidateSkillsSet[0].years}}.{{detail2.candidateSkillsSet[0].months}}years</span>
+                    </div>
+                </div>         
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Current Location: </b>
+              <span class="value">{{detail2.currentLocation}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Current Employer:</b>
+              <span class="value">{{detail2.currentEmployer}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Availability: </b>
+              <span class="value">{{detail2.availability}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Pay Type: </b>
+              <span class="value">{{detail2.payType}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>SubVendor Name: </b>
+              <span class="value">{{detail1.subVendorDetails.subVendorName}}</span>
+            </div>
+          </div>
+          
+          <div class = "row"  >      
+            <div class = "col" ><b>Immigration Status: </b>
+              <span class="value">{{detail2.immigrationStatus}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Requirement Name: </b>
+              <span class="value">{{detail1.requirementDetailsBean.jobTitle}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Created by: </b>
+              <span class="value">[{{detail1.positionCandidates.evalutedByTS}}] </span><br>
+
+              <span>{{detail1.positionCandidates.created_DATE| date:'medium'}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Client:</b>
+              <span class="value">{{detail1.requirementDetailsBean.clientName}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Submitted By:</b>
+              <span class="value">[{{detail1.positionCandidates.evalutedByTS}}]</span><br>
+               <span>{{detail1.requirementDetailsBean.createdDate |date:'medium'}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Client Location:</b>
+              <span class="value">{{detail1.positionCandidates.clientLocation}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Interview Status:</b>
+              <span class="value">{{detail1.positionCandidates.status}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Interview Type:</b>
+              <span class="value">{{detail1.positionCandidates.submissionType}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Screened By:</b>
+              <span class="value">{{detail1.positionCandidates.evalutedByTS}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Role:</b>
+              <span class="value">[{{detail1.candidateUserNotesList[0].userRole}}]</span> <br>
+              <span> {{detail1.positionCandidates.updatedDate |date:'medium'}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Last Updated By:</b>
+              <span class="value">[{{detail1.positionCandidates.evalutedByTS}}] </span><br>
+              <span>{{detail1.positionCandidates.updatedDate |date:'medium'}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Interview Started:</b>
+              <span class="value">{{detail1.positionCandidates.interviewStartDate |date:'medium'}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Interview Ended:</b>
+              <span class="value">{{detail1.positionCandidates.answeredDate |date:'medium'}}</span>
+            </div>
+          </div>
+          <div class = "row"  >      
+            <div class = "col" ><b>Time Taken:</b>
+              <span class="value">{{detail1.positionCandidates.responseTime}}</span>
+            </div>
+          </div>
+         
+        </div>
+          
+        </ion-card-content> 
+  </ion-card>
+</ion-content>

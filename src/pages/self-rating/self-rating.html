@@ -1,0 +1,57 @@
+<!--
+  Generated template for the SelfRatingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+        <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+        <h1>Self Ratings</h1>
+     </div>   
+  </ion-header>
+<ion-content padding>
+                
+  <ion-card *ngFor ="let rating of ratings">
+      <ion-card-content>      
+            <div class="container">
+                <div class = "row"  >
+                    <b>{{rating.skill}} </b>
+                    <span  *ngIf="rating.score >= '0' && rating.score <= '20' " class="_red">Novice </span>
+                    <span  *ngIf="rating.score >= '21' && rating.score <= '40'" class="_blue" >Average </span>
+                    <span   *ngIf="rating.score >= '41'&& rating.score <= '60'" class="_blue">Good </span>
+                    <span   *ngIf="rating.score >= '61'&& rating.score <= '80'"  class="_green">Expert </span>
+                    <span  *ngIf="rating.score >= '81' && rating.score <= '100'" class="_green">Guru  </span>
+                    <!-- <ion-item  >
+                        <ion-label  style="margin: 9px -72px -17px 0;">{{rating.score}}</ion-label> 
+                        <ion-range  color="dark" disabled [(ngModel)]="rating.score" ></ion-range>
+                        
+                    </ion-item> -->
+                    <progress-bar [progress]="rating.score" style="width:100%"></progress-bar>
+                </div>
+            </div>
+      </ion-card-content>
+  </ion-card>
+</ion-content>
+  <!-- <div class="container"  >
+           
+              <div class = "row"  style="background: white">
+                  <div class = "col" ><b>{{detail1.active}} </b>      
+                  </div>
+                  <div class = "col"   ><b>{{detail1.skill}} </b>
+                  </div>
+                    <div class = "col"  *ngIf="detail1.score >= '0' && detail1.score <= '20' " ><b>Novice </b></div>
+                    <div class = "col"  *ngIf="detail1.score >= '21' && detail1.score <= '40'"  ><b>Average </b></div>
+                     <div class = "col"  *ngIf="detail1.score >= '41'&& detail1.score <= '60'" ><b>Good </b></div>
+                    <div class = "col"  *ngIf="detail1.score >= '61'&& detail1.score <= '80'" ><b>Expert </b></div>
+                    <div class = "col"  *ngIf="detail1.score >= '81' && detail1.score <= '100'" ><b>Guru </b> </div>
+               </div>
+               <ion-list class="rate-list">
+                <ion-item >
+                  <ion-label>{{detail1.score}}</ion-label>
+                  <ion-range   color="dark" [(ngModel)]="detail1.score"></ion-range>
+                </ion-item>
+              </ion-list>
+               
+              </div>  -->

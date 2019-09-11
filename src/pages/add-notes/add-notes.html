@@ -1,0 +1,58 @@
+<ion-header>
+    <main-header></main-header>
+</ion-header>
+<ion-content padding>
+    
+   
+   <div class="modal_body" >
+      <div class="form-container">
+        <div class="scroll-content">
+          <div class="heading">
+            <h1 >Add Notes: </h1>
+          </div>
+          <hr>
+          <div class="card-container2"   *ngIf="finalVerdict != 'Pending'" style="border-radius: 0px">
+            <ion-card class="card-panel2">
+              <ion-card-content class="slide-body3"  > 
+                
+                  <ion-list style="border: 1px solid #c8c7cc">
+            
+    
+                      <ion-scroll style="width:100%; height:300px" scrollY="true">
+                        
+                         <ion-item *ngFor ="let note of notes">
+                            <b style="margin-left: 5px;">{{note.notes}} </b><br>
+                            --<span>{{note.userRole}} ({{note.userName}})</span><br>
+                           
+                            <h6> @ {{note.updatedDate | date:'medium'}} IST</h6>
+                         </ion-item>
+                         
+                     </ion-scroll>
+                  </ion-list> 
+                  <div class="row">
+                      <div class="col">
+      
+                      </div>
+                    </div>
+                  <ion-textarea placeholder="Write a comment"  [(ngModel)]="comment" style="border:1px solid #c8c7cc;margin-top: 2px;height: 92px;">
+                   
+                  </ion-textarea>
+                    
+              </ion-card-content>
+              </ion-card>
+             
+             
+          </div> 
+        
+            
+          
+        </div>
+      </div>
+    </div>
+    
+</ion-content>
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='cancelData()'>Close</button>
+     
+  <button ion-button full color='dark' (click)="update()">Submit</button>
+</ion-footer>

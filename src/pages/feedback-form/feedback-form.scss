@@ -1,0 +1,80 @@
+page-feedback-form {
+    ion-header{
+        .addBtn{
+            display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+                //flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+            }
+            h1{
+                font-size: 18px;
+                font-weight: bold;
+                flex: 2;
+                margin: 10px;
+            }
+           
+        }
+    }
+   
+   .card-container2{
+    margin-top: 12px;
+    margin-right: 10px;
+    margin-left: 10px;
+   h2{
+       font-size: 20px;
+       margin-left: 10px;
+   }
+    ion-card {
+        
+       
+
+        .card-panel2{
+            background: #3e3939 ;
+            border-radius: 0px;
+            .col{
+                font-size: 17px;
+                b{
+                    color:#4082f6;
+                    font-size: 18px;
+                }
+                .status_icon{
+                     float:left;
+                     margin: 0px -21px 0px;
+                     font-size: 22px;
+                     margin-right: 8px;
+                }
+                .type_icon{
+                     float:left;
+                     margin: 2px -21px 0px;
+                     font-size: 22px;
+                     margin-right: 8px;
+                }
+                .info-icon{
+                      float:left;
+                      margin: 2px -21px 0px;
+                      font-size: 22px;
+                      margin-right: 8px;
+                      margin-left: 1px
+                }
+                
+            }
+        }
+    }
+    
+    .card-container2{
+        //border-radius: 10px;
+        background: red;
+        .slide-body3{
+            background: #f4f2f9; 
+
+           
+        }
+       
+    }
+   }
+    
+}

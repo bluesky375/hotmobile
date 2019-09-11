@@ -1,0 +1,168 @@
+page-home {
+  ion-header{
+    ion-navbar{
+      .toolbar-background-md{
+        background-color: #2c2e2f !important;
+      }
+    }
+  }
+  .header{
+    display: flex !important;
+    text-align: center;
+    .left{
+      flex: 1;
+      ion-icon{
+        color: #fff;
+        font-size: 30px;
+        float: left;
+        padding: 10px;
+      }
+    }
+    .center{
+      flex: 2;
+      img{
+        height: 43px;
+      }
+    }
+    .rigth{
+      flex: 1;
+      ion-icon{
+        color: #fff;
+        font-size: 30px;
+        float: right;
+        padding: 10px;
+        padding-right: 15px;
+      }
+    }
+  }
+
+  .dash_body{
+    text-align: center;
+    .card-container{
+      display: flex;
+      .left{
+        margin-right: 5px !important;
+        margin-bottom: 5px !important;
+        margin-top: 5px !important;
+      }
+      .right{
+        margin-top: auto !important;
+        margin-left: 5px !important;
+        margin-bottom: 5px !important;
+        margin-top: 5px !important;
+      }
+    .card-body{
+      .body-top{
+        display: flex;
+        ion-icon{
+          font-size: 70px;
+          flex: 1;
+        }
+      }
+      .body-bottom{
+        span{
+          font-size: 14px;
+        }
+        h1{
+          margin: 0px;
+          padding: 0px;
+          font-size: 25px;
+          font-weight: bold;
+          flex: 2;
+          margin-top: 10px;
+        }
+      }
+     }
+    } 
+    .card-container2{
+    
+    ion-card{
+      margin-bottom: 5px;
+      .card-panel{
+     
+        text-align: left;
+        
+        ion-icon{
+          
+          color:white;
+          
+          
+        }
+        .add{
+          font-weight: bold;
+          margin-top: 3px;
+          font-size: 24px;
+         // margin-left: -9px;
+  
+        }
+        ._white{
+          font-weight:bold;
+          font-size: 18px;
+          margin-left: 24px;
+        }
+       
+       } 
+
+       .containerText{
+        margin-top: -29px;
+        margin-left: 10px;
+       }
+
+
+
+       .card-panel2{
+        padding: 0px 0px;
+        height: 856px;
+        button{
+          margin-top: 9px;
+          margin-bottom: 7px;
+          float: right;
+          height: 30px;
+          margin-right: 10px;
+          color: #488aff;
+          font-weight: bold;
+          border-width: 2px;
+          border-color: #488aff;
+          width: 111px;
+        }
+       }
+       .row-table{
+        background-color: #20a2c7;
+        .col{
+          padding: 11px;
+          text-align: left;
+          .panel-heading{
+            color: white;
+            font-weight: bold;
+            font-size: 17px;
+            
+          }
+        }
+        
+      }
+      .row{
+       
+        border: 1px solid #dedede;
+        .col{
+          text-align: center;
+          b{
+            display: block;
+            
+            font-size: 15px;
+          }
+          .value{
+           color:#1fa6d0;
+         
+            text-align: center;
+          }
+        }
+      }
+    }
+    }
+     
+    }
+    
+ 
+
+
+}

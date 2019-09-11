@@ -1,0 +1,16 @@
+side-menu {
+    ion-content{
+        ion-list{
+            ion-item{
+                ion-icon{
+                    margin-right: 10px;
+                }
+            }
+            .active{
+              //  background-color: #40bbea;
+              background-color: #be2828;
+                color: #fff;
+            }
+        }
+    }
+}

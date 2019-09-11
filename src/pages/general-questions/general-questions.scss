@@ -1,0 +1,67 @@
+page-general-questions {
+    ion-header{
+        .addBtn{
+            display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+                flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+                 max-width: 50px;
+            }
+            // h1{
+            //     font-size: 18px;
+            //     font-weight: bold;
+            //     flex: 6;
+            //     margin: 10px;
+            // }
+           .btn2{
+               // flex: 5;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #343434;
+                margin-right: 0px;
+                width: 150px;
+            }
+            .btn3{
+                //flex: 5;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #9a9393;
+                margin-left: 0px;
+                width: 150px;
+            }
+        }
+    }
+    .inner-left{
+        font-size: 12px !important;
+    }
+    .button-ios {
+        font-size: 1.3rem !important;
+    }
+    ion-card{
+        .row{
+            font-size: 17px;
+        }
+    }
+    .input-wrapper {
+       
+        font-size: 15px !important;
+    }
+    ion-label {        
+        white-space: inherit !important;
+    }
+    button.item-ios:not([detail-none]) .item-inner {
+        background-image: none !important;
+    .btn4{
+        border-color: #222;
+        color: white;
+        background-color: #343434;
+        float: right
+    }
+}
+}

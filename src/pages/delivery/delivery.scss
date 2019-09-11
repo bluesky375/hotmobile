@@ -1,0 +1,19 @@
+page-delivery {
+    .com {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		position: absolute;
+		background-color: green;
+		border-radius: 50%;
+    }
+    .noncom {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		position: absolute;
+		background-color:gray;
+		border-radius: 50%;
+	}
+
+}

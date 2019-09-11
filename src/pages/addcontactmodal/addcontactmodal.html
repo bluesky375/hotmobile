@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+      <div class="header">
+        <div class="left"></div>
+        <div class="center">
+          <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+        </div>
+        <div class="rigth">
+          <ion-icon ios="ios-close" md="md-close" (click)="closeModal()"></ion-icon>
+        </div>
+      </div>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+      
+     
+     <div class="modal_body" >
+        <div class="form-container">
+          <div class="scroll-content">
+            <div class="heading">
+              <h1>Add Client Contact</h1>
+            </div>
+            <ion-item  class="_row">
+                <ion-label  floating >First Name  <span class="astric">*</span> : </ion-label>
+                <ion-input type="text"  [(ngModel)]="firstName" ></ion-input>
+              </ion-item> 
+              <ion-item  class="_row">
+                  <ion-label  floating >Last Name <span class="astric">*</span> : </ion-label>
+                  <ion-input type="text"  [(ngModel)]="lastName" ></ion-input>
+              </ion-item> 
+              <ion-item  class="_row">
+                  <ion-label  floating >User Name <span class="astric">*</span> : </ion-label>
+                  <ion-input type="text"  [(ngModel)]="userName" ></ion-input>
+              </ion-item> 
+              <ion-item  class="_row">
+                  <ion-label  floating >Email Id <span class="astric">*</span> : </ion-label>
+                  <ion-input type="text"  [(ngModel)]="emailId" ></ion-input>
+              </ion-item> 
+              <ion-item  class="_row">
+                  <ion-label  floating >Contact number <span class="astric">*</span> : </ion-label>
+                  <ion-input type="text"  [(ngModel)]="contactNumber" ></ion-input>
+              </ion-item>
+              <ion-item  class="_row">
+                  <ion-label  floating >Alternate Contact  : </ion-label>
+                  <ion-input type="text"  [(ngModel)]="alternateContact" ></ion-input>
+              </ion-item>
+              <ion-item  class="_row">
+                  <ion-label  floating >Note  : </ion-label>
+                  <ion-textarea type="text"  [(ngModel)]="note" ></ion-textarea>
+              </ion-item>
+              
+         
+          </div>
+        </div>
+      </div>
+      
+  </ion-content>
+  <ion-footer class="commonFooter">
+    <button ion-button full color='danger' (click)='cancelData()'>No</button>
+    <button ion-button full color='dark' (click)="addData()">Yes</button>
+  </ion-footer>
+  

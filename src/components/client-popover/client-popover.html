@@ -1,0 +1,22 @@
+<!-- Generated template for the ClientPopoverComponent component -->
+<ion-list  >
+  
+  
+  <button ion-item (click)="disableClients()" *ngIf="enabled== true">
+      Disable
+   </button>
+   <button ion-item (click)="enableClients()" *ngIf="enabled== false" >
+    Enable
+  </button>
+   <button  ion-item (click)="blacklistClient()" *ngIf="isBlackListed=='No'" >
+    BlackList Client
+   </button>
+   <button ion-item (click)="removeBlacklist()" *ngIf="isBlackListed=='Yes'">
+    Remove Blacklist
+ </button>
+   <button ion-item (click)="changeAccountManager()" >
+     Change Account Manager
+   </button>
+   
+  
+</ion-list>

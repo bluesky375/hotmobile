@@ -1,0 +1,71 @@
+<!--
+  Generated template for the RequirementsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <main-header></main-header>
+    <div class="addBtn"> 
+            <button ion-button class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+            <h1>Sub Vendors</h1>
+            <button ion-button color="dark" outline (click)="createSubvendor()">Create SubVendor</button>
+    </div>
+
+    <ion-row center >
+       
+        <ion-col>
+           <ion-searchbar
+           [(ngModel)]="myInput">
+         </ion-searchbar>
+       </ion-col> 
+       
+       
+     </ion-row> 
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>       
+ 
+        <div class="body" *ngFor="let vendor of subVendorsList| search : myInput"  >
+         
+              <div class="body-left col">
+                  
+                  <button ion-item (click)="gotoEditSubvendor(vendor)">
+                      <h1 >  {{vendor.subVendorName | uppercase }}</h1>
+                    <div  >
+                        <div class="inner-body" >
+                            <label class="inner-left"><b>Division</b> :  <span >{{vendor.division}}</span></label> 
+                        </div>
+                        <div class="inner-body " >
+                            <label class="inner-left"><b>ContactNumber</b> :  <span >{{vendor.contactNumber}}</span></label> 
+                        </div>
+                        <div class="inner-body" >
+                            <label class="inner-left"><b>Status</b> :  <span >{{vendor.status}}</span></label> 
+                        </div>
+                    </div >
+                       
+                     <div *ngIf="vendor.isBlackListed=='Yes'">
+                        <span style="color:red;font-size: 16px;">This SubVendor is BlackListed </span> <ion-icon name="help-circle"></ion-icon>
+                     </div> 
+                     
+                  </button>   
+              
+             
+        </div>
+        
+        <div class="body-right col">   
+            <button ion-item (click)="presentPopover($event,vendor)" >  
+                    <ion-icon ios="ios-menu" md="md-menu" class="popbtn"></ion-icon>
+            </button>  
+        </div>
+         
+           
+        </div>          
+          
+</ion-list>
+    <!-- <ion-fab class="fab-btn" title="Filter" >
+        <button ion-fab (click)="openModal(user)"> <ion-icon name="ios-funnel"></ion-icon></button>
+      </ion-fab>  -->
+</ion-content>

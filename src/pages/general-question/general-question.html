@@ -1,0 +1,41 @@
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+        <button ion-button  class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+        <button ion-button  class="btn2" outline >General Questions</button>
+        <button ion-button  class="btn3" outline (click)="gotoTechnicals()">Technical Questions</button>
+  </div>
+  <ion-row center >
+     
+    <ion-col>
+      <ion-row>
+          <span style="font-size:18px;margin:20px">General Questions</span>
+          <button style="float:right;color:white;background: #40bbea;margin-top: 13px;" ion-button  class="btn2" outline  (click)="addGeneral()">Create Questions</button>
+      </ion-row>    
+   </ion-col> 
+ </ion-row> 
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-card *ngFor ="let question of generals;let i=index" >
+        <ion-card-content  (click)="editQusetion(question.id)">      
+              <div class="container">
+                  <div class = "row"  >
+                      <div class = "col" ><b>{{i + 1}}. {{question.questionName}} </b><br>
+
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                        <b>Type</b> : <span>{{question.type}}</span>
+                      </div>
+                      <div class="col">
+                          <b>Author</b> : <span>{{question.createdUserName}}</span>
+                      </div>
+                  </div>
+              </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
